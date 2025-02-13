@@ -1,0 +1,1 @@
+oxy_webhelp_navlinks = {"used_kpis_intro-d43829e14966":{"topics":[{"title":"ASF ATecnica Não Ligados","href":"modules\/cleva_analytics\/document\/legal_report\/pt_market\/atecnica_nao_ligados\/atecnica_nao_ligados_kpi.html","attributes":{"data-id":"claim_cost"},"menu":{"hasChildren":false},"tocID":"claim_cost-d43829e14984","topics":[]}]}};

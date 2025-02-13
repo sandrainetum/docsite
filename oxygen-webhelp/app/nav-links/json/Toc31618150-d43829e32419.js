@@ -1,0 +1,1 @@
+oxy_webhelp_navlinks = {"Toc31618150-d43829e32419":{"topics":[{"title":"Maintenance data of standard roles","href":"modules\/cleva_product_factory\/document\/configuration_guide\/converted_710\/maintenance_data_of_standard_roles_3.html","attributes":{"data-id":"Toc31618151"},"menu":{"hasChildren":false},"tocID":"Toc31618151-d43829e32434","topics":[]}]}};

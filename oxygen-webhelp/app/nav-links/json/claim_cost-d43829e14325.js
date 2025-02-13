@@ -1,0 +1,1 @@
+oxy_webhelp_navlinks = {"claim_cost-d43829e14325":{"topics":[{"title":"Claim costs (until 7.10)","href":"modules\/cleva_analytics\/document\/business_kpi\/lfe\/claim_cost.html","attributes":{"data-id":"claim_cost"},"menu":{"hasChildren":false},"tocID":"claim_cost-d43829e14340","topics":[]}]}};

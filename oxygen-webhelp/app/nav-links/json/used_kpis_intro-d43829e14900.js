@@ -1,0 +1,1 @@
+oxy_webhelp_navlinks = {"used_kpis_intro-d43829e14900":{"topics":[{"title":"ASF ATecnica Contratos de Investimento","href":"modules\/cleva_analytics\/document\/legal_report\/pt_market\/atecnica_contratos_investimento\/atecnica_contratos_investimento_kpi.html","attributes":{"data-id":"claim_cost"},"menu":{"hasChildren":false},"tocID":"claim_cost-d43829e14918","topics":[]}]}};

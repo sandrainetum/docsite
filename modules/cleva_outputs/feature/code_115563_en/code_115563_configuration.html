@@ -1,0 +1,1582 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" data-whc_version="26.0">
+    <head><link rel="shortcut icon" href="../../../../oxygen-webhelp\template\images\favicon.png"/><link rel="icon" href="../../../../oxygen-webhelp\template\images\favicon.png"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="task"/><meta name="description" content="This feature provides a console that allows configuring the flow steps and actions for each event that might generate an output."/><meta name="DC.relation" content="../../../../site/release_documentation/module_intro-7.html"/><meta name="DC.relation" content="../../../../modules/cleva_outputs/7.11/system_requirements.html"/><meta name="DC.relation" content="../../../../site/release_documentation/module_intro-8.html"/><meta name="DC.relation" content="../../../../modules/cleva_outputs/document/module_guide/configurations.html"/><meta name="DC.relation" content="../../../../modules/cleva_outputs/document/module_guide/configurations.html"/><meta name="DC.relation" content="../../../../modules/cleva_outputs/feature/code_115573_en/code_115573_configuration.html"/><meta name="DC.relation" content="code_115563_functional.html"/><meta name="rights" content="© 2024 Cleva Solutions, S.A. "/><meta name="rights" content="© 2024 Cleva Solutions, S.A. "/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="code_115563_configuration"/>        
+      <title>Flow configurator</title><!--  Generated with Oxygen version 26.0, build number 2023110923.  --><meta name="wh-path2root" content="../../../../"/><meta name="wh-toc-id" content="code_115563_configuration-d43829e29275"/><meta name="wh-source-relpath" content="modules/cleva_outputs/feature/code_115563_en/code_115563_configuration.dita"/><meta name="wh-out-relpath" content="modules/cleva_outputs/feature/code_115563_en/code_115563_configuration.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/app/commons.css?buildId=2023110923"/>
+    <link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/app/topic.css?buildId=2023110923"/>
+
+    <script src="../../../../oxygen-webhelp/app/options/properties.js?buildId=20250107101839"></script>
+    <script src="../../../../oxygen-webhelp/app/localization/strings.js?buildId=2023110923"></script>
+    <script src="../../../../oxygen-webhelp/app/search/index/keywords.js?buildId=20250107101839"></script>
+    <script defer="defer" src="../../../../oxygen-webhelp/app/commons.js?buildId=2023110923"></script>
+    <script defer="defer" src="../../../../oxygen-webhelp/app/topic.js?buildId=2023110923"></script>
+<link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/cleva-style.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/cleva-footer.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/search-in-header.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/topic-with-tiles.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/data-table.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/cleva-style-notes.css?buildId=2023110923"/>
+        <!-- The DataTables library styles (for local use please uncomment the following lines) -->
+        <!--<link rel="stylesheet" type="text/css" href="${oxygen-webhelp-template-dir}/DataTables/datatables.min.css"/>-->
+        <script defer="true" src="../../../../oxygen-webhelp/template/DataTables/datatables.min.js"></script>
+        
+        
+        <!--<link rel="stylesheet" type="text/css"
+            href="http://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />-->
+        
+<!--        <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js" defer="true"/>
+        <script defer="true" src="https://cdn.datatables.net/fixedcolumns/5.0.1/js/dataTables.fixedColumns.js"/>
+        <script defer="true" src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"/>
+        <script defer="true" src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.colVis.min.js"/>-->
+        
+        
+        
+        <!-- DataTables initialization script -->
+        <script>
+    <!--            
+            window.addEventListener("DOMContentLoaded", (event) => {
+            $('.clevatable_dtresp_child_plwc_plcc').DataTable({
+                paging: false,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 320,
+                responsive: {
+                    details: {
+                        renderer: function (api, rowIdx, columns) {
+                            var data = $.map(columns, function (col, i) {
+                                return col.hidden ? 
+                                    '<tr>' +
+                                        '<td><strong>' + col.title + ':</strong></td> ' +  // Column title
+                                        '<td>' + col.data + '</td>' +                      // Corresponding data
+                                    '</tr>' : 
+                                    '';
+                            }).join('');
+        
+                            return data ? $('<table class="table"/>').append(data) : false;  // Append child rows to the table
+                        }
+                    }
+                },
+                columnDefs: [
+                    // Keep the first two columns always visible
+                    { responsivePriority: 1, targets: 0 },  // Widget/component key always visible
+                    { responsivePriority: 2, targets: 1 },  // Variable name always visible
+                    { responsivePriority: 3, targets: 2 },  // I/O always visible
+                    { responsivePriority: 4, targets: 3 },  // Type always visible
+                    { responsivePriority: 5, targets: 4 },  // Mandatory always visible
+        
+                    // Hide description and comment, accessible via child row
+                    { responsivePriority: 6, targets: [5, 6], className: 'none' }
+                ]
+            });
+        });
+
+    
+            window.addEventListener("DOMContentLoaded", (event) => {
+            $('.clevatable_dtresp_modal_plwc').DataTable({
+                paging: false,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 310,
+                responsive: {
+                    details: {
+                        display: $.fn.dataTable.Responsive.display.modal({  // modal call for DataTables
+                            header: function (row) {
+                                var data = row.data();
+                                return 'Details for Widget key: ' + data[0];  // Title for modal window
+                            }
+                        }),
+                    renderer: function (api, rowIdx, columns) {
+                        var data = $.map(columns, function (col, i) {
+                            var rowContent = '';
+    
+                            // Generate rows for hidden columns
+                            if (col.hidden) {
+                                // Add class if the column title starts with "Cleva"
+                                var titleClass = col.title.startsWith('Cleva') ? 'cleva-modal-field-child' : 'cleva-modal-field';
+                                rowContent += '<tr>' +
+                                    '<td class="' + titleClass + '"><strong>' + col.title + ':</strong></td>' +  // Column title with conditional class for "Cleva"
+                                    '<td>' + col.data + '</td>' +                      // Corresponding data
+                                '</tr>';
+                            }
+    
+                            // If the current column title is "Context", add the extra row after it
+                            if (col.title === 'Context') {
+                                rowContent += '<tr>' +  // Add a simple row here
+                                    '<td colspan="2" class="cleva-modal-field-group"><strong>Version availability</strong></td>' + // New row for Version availability
+                                '</tr>';
+                            }
+    
+                            return rowContent;
+                        }).join('');
+    
+                        return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns to modal
+                    }
+                }
+            },
+                columnDefs: [
+                    // Keep these 4 columns visible at all times
+                    { responsivePriority: 1, targets: 0 },  // Keep Widget Key visible
+                    { responsivePriority: 2, targets: 4 },  // Keep Name visible
+                    { responsivePriority: 5, targets: 2 },  // Keep Functional area visible
+                    { responsivePriority: 6, targets: 3 },  // Keep Business area visible
+                    { responsivePriority: 3, targets: 6 },  // Keep Status visible
+                    { responsivePriority: 4, targets: 1 },  // Keep Module visible
+
+        
+                    // Hide remaining columns (19 in total) but accessible via modal
+                    { responsivePriority: 7, targets: [5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], className: 'none' }
+                ]
+            });
+        });
+
+
+                    window.addEventListener("DOMContentLoaded", (event) => {
+                    $('.clevatable_dtresp_modal_plcc').DataTable({
+                        paging: false,
+                        scrollCollapse: true,
+                        scrollX: true,
+                        scrollY: 310,
+                        responsive: {
+                            details: {
+                                display: $.fn.dataTable.Responsive.display.modal({  // modal call for DataTables
+                                    header: function (row) {
+                                        var data = row.data();
+                                        return 'Details for Component key: ' + data[0];  // Title for modal window
+                                    }
+                                }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col, i) {
+                                    var rowContent = '';
+            
+                                    // Generate rows for hidden columns
+                                    if (col.hidden) {
+                                        // Add class if the column title starts with "Cleva"
+                                        var titleClass = col.title.startsWith('Cleva') ? 'cleva-modal-field-child' : 'cleva-modal-field';
+                                        rowContent += '<tr>' +
+                                            '<td class="' + titleClass + '"><strong>' + col.title + ':</strong></td>' +  // Column title with conditional class for "Cleva"
+                                            '<td>' + col.data + '</td>' +                      // Corresponding data
+                                        '</tr>';
+                                    }
+            
+                                    // If the current column title is "Exceptions", add the extra row after it
+                                    if (col.title === 'Exceptions') {
+                                        rowContent += '<tr>' +  // Add a simple row here
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Version availability</strong></td>' + // New row for Version availability
+                                        '</tr>';
+                                    }
+            
+                                    return rowContent;
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns to modal
+                            }
+                        }
+                    },
+                        columnDefs: [
+                            // Keep these 4 columns visible at all times
+                            { responsivePriority: 1, targets: 0 },  // Keep Component Key visible
+                            { responsivePriority: 2, targets: 1 },  // Keep Module visible
+                            { responsivePriority: 3, targets: 2 },  // Keep Functional area visible
+                            { responsivePriority: 4, targets: 3 },  // Keep Business area visible
+                            { responsivePriority: 5, targets: 4 },  // Keep Name visible
+                            { responsivePriority: 6, targets: 6 },  // Keep Status visible
+        
+                
+                            // Hide remaining columns (22 in total) but accessible via modal
+                            { responsivePriority: 7, targets: [5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], className: 'none' }
+                        ]
+                    });
+                });
+                  
+                
+                window.addEventListener("DOMContentLoaded", (event) => {
+                    $('.clevatable_dtresp_modal_apilm').DataTable({
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollX: true,
+                    scrollY: 310,
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.modal({
+                                header: function (row) {
+                                    var data = row.data();
+                                    return 'Details for API Logging message: ' + data[0];  // Customize header with first column's data
+                                }
+                            }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col) {
+                                    var rowContent = '';
+            
+                                    // Add "Message information" row before "Detail message" column
+                                    if (col.title === 'Detail message') {
+                                        rowContent += '<tr class="message-info">' +  
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Message information</strong></td>' +
+                                            '</tr>';
+                                    }
+            
+                                    // Add "Message context" row before "Context" column
+                                    if (col.title === 'Context') {
+                                        rowContent += '<tr class="message-context">' +  
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Message context</strong></td>' +
+                                            '</tr>';
+                                    }
+            
+                                    // Generate rows for hidden columns and apply 'cleva-modal-field-child' class to all except custom rows
+                                    if (col.hidden) {
+                                        rowContent += '<tr>' +
+                                            '<td class="cleva-modal-field-child"><strong>' + col.title + ':</strong></td>' +  // Always apply 'cleva-modal-field' class
+                                            '<td>' + col.data + '</td>' +  // Column data
+                                        '</tr>';
+                                    }
+            
+                                    return rowContent;
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns in modal
+                            }
+                        }
+                    },
+                    columnDefs: [
+                        { responsivePriority: 1, targets: 0},  // First column (Message code) always visible
+                        { responsivePriority: 2, targets: 1},  // Second column (Message) always visible
+                        { responsivePriority: 3, targets: 2, className: 'none'}, // Hide third column (Detail message), accessible via modal
+                        { responsivePriority: 4, targets: 3, className: 'none'}, // Hide fourth column (Additional data), accessible via modal
+                        { responsivePriority: 5, targets: 4, className: 'none'}, // Hide fifth column (Context), accessible via modal
+                        { responsivePriority: 6, targets: 5, className: 'none'}, // Hide sixth column (Process), accessible via modal
+                        { responsivePriority: 7, targets: 6, className: 'none'}, // Hide seventh column (Used on), accessible via modal
+                    ]
+                });
+            });
+
+              
+            window.addEventListener("DOMContentLoaded", (event) => {
+                    $('.clevatable_dtresp_modal_batch').DataTable({
+                        paging: false,
+                        scrollCollapse: true,
+                        scrollX: true,
+                        scrollY: 310,
+                        responsive: {
+                            details: {
+                                display: $.fn.dataTable.Responsive.display.modal({  // modal call for DataTables
+                                    header: function (row) {
+                                        var data = row.data();
+                                        return 'Details for batch: ' + data[0];  // Title for modal window
+                                    }
+                                }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col, i) {
+                                    var rowContent = '';
+            
+                                    // Generate rows for hidden columns
+                                    if (col.hidden) {
+                                        // Add class if the column title starts with "Cleva"
+                                        var titleClass = col.title.startsWith('Cleva') ? 'cleva-modal-field-child' : 'cleva-modal-field';
+                                        rowContent += '<tr>' +
+                                            '<td class="' + titleClass + '"><strong>' + col.title + ':</strong></td>' +  // Column title with conditional class for "Cleva"
+                                            '<td>' + col.data + '</td>' +                      // Corresponding data
+                                        '</tr>';
+                                    }
+            
+                                    // If the current column title is "Steps", add the extra row after it
+                                    if (col.title === 'Steps') {
+                                        rowContent += '<tr>' +  // Add a simple row here
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Version availability</strong></td>' + // New row for Version availability
+                                        '</tr>';
+                                    }
+            
+                                    return rowContent;
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns to modal
+                            }
+                        }
+                    },
+                        columnDefs: [
+                            // Keep these 4 columns visible at all times
+                            { responsivePriority: 1, targets: 0 },  // Keep Module visible
+                            { responsivePriority: 2, targets: 1 },  // Keep Name visible
+                            { responsivePriority: 3, targets: 4 },  // Keep Frequency visible
+        
+                
+                            // Hide remaining columns (22 in total) but accessible via modal
+                            { responsivePriority: 4, targets: [2, 3, 5, 6, 7, 8], className: 'none' }
+                        ]
+                    });
+                });  
+              
+              
+              
+              
+    
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $('.clevatable_dtresp_modal_kpi').DataTable({
+                    searching: false,            // Disable search functionality
+                    info: false,                 // Disable table info display (e.g., "Showing X of Y entries")
+                    paging: false,               // Disable pagination
+                    scrollCollapse: true,        // Collapse empty space when content is smaller
+                    scrollX: true,              // Enable horizontal scrolling
+                    scrollY: false,              // Disable vertical scrolling
+                    autoWidth: false,            // Prevent DataTables from auto-adjusting column widths
+                    ordering: false,
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.modal({   // Correct modal display
+                                header: function (row) {
+                                    var data = row.data();
+                                    return 'Details for KPI Instruction: ' + data[0];  // Customize header with first column's data
+                                }
+                            }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col) {
+                                    return col.hidden ?                           // Display only hidden columns in the modal
+                                        '<tr>' +
+                                            '<td><strong>' + col.title + ':</strong></td> ' +  // Column title
+                                            '<td>' + col.data + '</td>' +                      // Column data
+                                        '</tr>' : '';
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns in modal
+                            }
+                        }
+                    },
+                    columnDefs: [
+                        { responsivePriority: 1, targets: 0, width: "30%"},  // First column (Table name) always visible
+                        { responsivePriority: 2, targets: 1},  // Second column (Description) always visible
+                        { responsivePriority: 3, targets: 2, className: 'none'}, // Hide third column (Command), accessible via modal
+                    ]
+                });
+            });
+
+  
+    
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $('.clevatable_dtstandard, .cleva_table1').DataTable({
+                    fixedColumns: {
+                        start: 1
+                    },
+                    dom: 'Bfrtip', // This is necessary to position the buttons
+                    buttons: [
+                        'colvis' // Adds column visibility buttons
+                    ],
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollX: true,
+                    scrollY: 310,
+                    responsive: false
+                });
+            });
+            
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $('.clevatable_dtstandard_basic').DataTable({
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollX: true,
+                    scrollY: 310,
+                    responsive: false
+                });
+            });
+            
+    -->
+        </script>
+    <script defer="true" src="../../../../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script></head>
+
+    <body id="code_115563_configuration" class="wh_topic_page cleva_doctype_configuration">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div xmlns:whc="http://www.oxygenxml.com/webhelp/components" class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="C:\cleva-docenv\repos\i2s-documentation\cleva_product_documentation/out/site/index.html" class=" wh_logo d-none d-sm-block "><img src="../../../../oxygen-webhelp\template\images/cleva-newicon.svg" alt="CLEVA LIFE V7 | DOCUMENTATION"/></a>
+                    <div class=" wh_publication_title "><a href="../../../../index.html"><span class="title">CLEVA <span class="ph">LIFE V7</span> | DOCUMENTATION</span></a></div>
+                    
+                </div>
+                
+                <button type="button" data-target="#wh_top_menu_and_indexterms_link" id="wh_menu_mobile_button" data-toggle="collapse" class="navbar-toggler collapsed wh_toggle_button" aria-expanded="false" aria-label="Toggle menu" aria-controls="wh_top_menu_and_indexterms_link">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                <nav class=" wh_top_menu " aria-label="Menu Container"><ul role="menubar" aria-label="Menu"><li role="menuitem"><span id="news_2024_en-d43829e25-mi" data-tocid="news_2024_en-d43829e25" data-state="leaf" class=" topicref " data-id="news_2024_en"><span class="title"><a href="../../../../site/news/news_2024_en.html">News 2024</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="release_documentation-d43829e44-mi" data-tocid="release_documentation-d43829e44" data-state="not-ready" class=" topicref " data-id="release_documentation"><span class="title"><a href="../../../../site/release_documentation/release_documentation_intro.html">Release documentation</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="module_guides-d43829e14159-mi" data-tocid="module_guides-d43829e14159" data-state="not-ready" class=" topicref " data-id="module_guides"><span class="title"><a href="../../../../site/module_guides/module_guides_intro.html">Module guides</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="catalogues-d43829e35552-mi" data-tocid="catalogues-d43829e35552" data-state="not-ready" class=" topicref " data-id="catalogues"><span class="title"><a href="../../../../catalogues/catalogues.html">Catalogues</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="business_documents-d43829e35725-mi" data-tocid="business_documents-d43829e35725" data-state="not-ready" class=" topicref " data-id="business_documents"><span class="title"><a href="../../../../business_documents/business_documents.html">Module overview</a></span></span></li></ul></nav>
+                
+                
+            </div>
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../../../../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div></div>
+    </div>
+</header>
+        
+        
+         
+        
+        
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../../../../index.html"><span>Home</span></a></span></li><li><div class="topicref" data-id="module_guides"><div class="title"><a href="../../../../site/module_guides/module_guides_intro.html">Module guides</a><div class="wh-tooltip"><p class="shortdesc">This section provides all module guides organized by module.</p></div></div></div></li><li><div class="topicref" data-id="module_guides_related_to_one_module"><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro-2.html"><span class="ph">Cleva Outputs</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module supports integration between Cleva software and third-party applications      regarding output management, allowing document generation, sending and archiving.</span></p></div></div></div></li><li><div class="topicref" data-id="configurations"><div class="title"><a href="../../../../modules/cleva_outputs/document/module_guide/configurations.html">Configurations</a></div></div></li><li class="active"><div class="topicref" data-id="code_115563_configuration"><div class="title"><a href="../../../../modules/cleva_outputs/feature/code_115563_en/code_115563_configuration.html">Flow configurator</a><div class="wh-tooltip"><p class="shortdesc">This feature provides a console that allows         configuring the flow steps and actions for each event that might generate an         output.</p></div></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="true"><div data-tocid="module_guides-d43829e14159" class="topicref" data-id="module_guides" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action module_guides-d43829e14159-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_intro.html" id="module_guides-d43829e14159-link">Module guides</a><div class="wh-tooltip"><p class="shortdesc">This section provides all module guides organized by module.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="module_guides_related_to_one_module-d43829e14177" class="topicref" data-id="module_guides_related_to_one_module" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action module_guides_related_to_one_module-d43829e14177-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro.html" id="module_guides_related_to_one_module-d43829e14177-link"><span class="ph">Cleva Analytics</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module includes several data marts generated based on the business of Life,      Non-life and Accounting areas. It allows extracting, from massive data volumes, information      that is relevant for a quick decision-making process.</span></p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="module_guides_related_to_one_module-d43829e28119" class="topicref" data-id="module_guides_related_to_one_module" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action module_guides_related_to_one_module-d43829e28119-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro-1.html" id="module_guides_related_to_one_module-d43829e28119-link"><span class="ph">Cleva Frontend factory</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module provides features to define the UX/UI of all Cleva software. It allows      insurers to define menus, pages and sections, and to integrate different Cleva modules within      the same user interface.</span></p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="module_guides_related_to_one_module-d43829e28885" class="topicref" data-id="module_guides_related_to_one_module" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action module_guides_related_to_one_module-d43829e28885-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro-2.html" id="module_guides_related_to_one_module-d43829e28885-link"><span class="ph">Cleva Outputs</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module supports integration between Cleva software and third-party applications      regarding output management, allowing document generation, sending and archiving.</span></p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="general_information-d43829e28907" class="topicref" data-id="general_information" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action general_information-d43829e28907-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_outputs/document/module_guide/general_information.html" id="general_information-d43829e28907-link">General information</a><div class="wh-tooltip"><p class="shortdesc">This chapter introduces overview information about Cleva Outputs, such as its         architecture, roles and other resources.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="output_widgets-d43829e29008" class="topicref" data-id="output_widgets" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action output_widgets-d43829e29008-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_outputs/document/module_guide/flow.html" id="output_widgets-d43829e29008-link">Flow</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="enrichers-d43829e29098" class="topicref" data-id="enrichers" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action enrichers-d43829e29098-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_outputs/document/module_guide/enrichers.html" id="enrichers-d43829e29098-link">Enrichers</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="document_generation-d43829e29156" class="topicref" data-id="document_generation" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action document_generation-d43829e29156-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_outputs/document/module_guide/document_generation.html" id="document_generation-d43829e29156-link">Document generation</a><div class="wh-tooltip"><p class="shortdesc">This chapter refers to the phase when the document is generated, based on data merged         layout. This step may also be a batch operation, in which case no return is expected. </p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="document_archiving-d43829e29217" class="topicref" data-id="document_archiving" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action document_archiving-d43829e29217-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_outputs/document/module_guide/document_archiving.html" id="document_archiving-d43829e29217-link">Document archiving</a><div class="wh-tooltip"><p class="shortdesc">This chapter refers to the document management, where it is possbile, for example, to         archive a document or search for stored documents.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="configurations-d43829e29260" class="topicref" data-id="configurations" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action configurations-d43829e29260-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_outputs/document/module_guide/configurations.html" id="configurations-d43829e29260-link">Configurations</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" class="active"><div data-tocid="code_115563_configuration-d43829e29275" class="topicref" data-id="code_115563_configuration" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_outputs/feature/code_115563_en/code_115563_configuration.html" id="code_115563_configuration-d43829e29275-link">Flow configurator</a><div class="wh-tooltip"><p class="shortdesc">This feature provides a console that allows         configuring the flow steps and actions for each event that might generate an         output.</p></div></div></div></li><li role="treeitem"><div data-tocid="code_115573_configuration-d43829e29300" class="topicref" data-id="code_115573_configuration" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_outputs/feature/code_115573_en/code_115573_configuration.html" id="code_115573_configuration-d43829e29300-link">Data purge</a><div class="wh-tooltip"><p class="shortdesc">This feature provides a routine process that allows         purging the output's data according to a time condition.</p></div></div></div></li></ul></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="module_guides_related_to_one_module-d43829e29330" class="topicref" data-id="module_guides_related_to_one_module" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action module_guides_related_to_one_module-d43829e29330-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro-3.html" id="module_guides_related_to_one_module-d43829e29330-link"><span class="ph">Cleva Product factory</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module includes product engineering features, which allow the insurance company to      configure all the components the system needs to manage a product, including tariffs, data      validation rules, risk acceptance, calculation of taxes and commissions, claim context,      indemnity calculation rules and the behaviour expected in a specific distribution      channel.</span></p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="technical_accounting_homepage-d43829e33690" class="topicref" data-id="technical_accounting_homepage" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action technical_accounting_homepage-d43829e33690-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_technical_accounting/document/module_guide/technical_accounting_homepage.html" id="technical_accounting_homepage-d43829e33690-link">Cleva Technical accounting</a><div class="wh-tooltip"><p class="shortdesc">Cleva Technical accounting (TAC) is a solution designed to support the integration of         the insurance company’s core system with its accounting system.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="module_guides_related_to_one_module-d43829e34293" class="topicref" data-id="module_guides_related_to_one_module" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action module_guides_related_to_one_module-d43829e34293-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro-4.html" id="module_guides_related_to_one_module-d43829e34293-link"><span class="ph">Cleva Workflow</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module includes the workflow engine that orchestrates all business processes and      corresponding insurance activities, from underwriting to claim management. It allows      implementing activity automation according to the business rules defined by the insurance      company, and the activities processed manually are available to users via the task      manager.</span></p></div></div></div></li></ul></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic task/task topic task" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Flow configurator</h1>
+         <div class="- topic/body task/taskbody body taskbody"><p class="- topic/shortdesc shortdesc">This feature provides a console that allows
+        configuring the flow steps and actions for each event that might generate an
+        output.</p>
+        <section class="- topic/section task/context section context">
+            <p class="- topic/p p">The activation of this feature requires the configurations below.</p>
+            <div class="- topic/div div">
+            
+            
+            <p class="- topic/p p"><em class="+ topic/ph hi-d/i ph i">CODE-115563 | Cleva Outputs | 7.10 | All markets</em></p>
+        </div>
+        </section>
+        <section class="- topic/ul task/steps-unordered ul steps-unordered"><ul class="- topic/ul task/steps-unordered ul steps-unordered"><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd"><strong class="+ topic/ph hi-d/b ph b">Process configuration</strong></span>
+                <div class="- topic/itemgroup task/info itemgroup info">
+                    <p class="- topic/p p">To configure a process, follow the steps below.</p>
+                </div>
+                <ol class="- topic/ol task/substeps ol substeps">
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd">Create new process</span>
+                        <div class="- topic/itemgroup task/info itemgroup info">
+                            <p class="- topic/p p">Go to the process configuration area in <strong class="+ topic/ph hi-d/b ph b">Configuration _
+                                    Processes</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_dkf_zc3_41c" src="images/code_115563_configuration_fig1.png"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 1</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Process configuration (I).</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_ekf_zc3_41c" src="images/code_115563_configuration_fig2.png" height="396" width="766"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 2</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Process configuration (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">To create a new process, click <strong class="+ topic/ph hi-d/b ph b">Create process</strong> and complete the
+                                fields displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_fkf_zc3_41c" src="images/code_115563_configuration_fig3.png" height="268" width="651"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 3</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Process configuration (III).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_gkf_zc3_41c" data-ofbid="code_115563_configuration__ul_gkf_zc3_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Name</strong>: Name of the process.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Description</strong>: Description of the process.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Context</strong>: Context of the process with the following
+                                        options:<ul class="- topic/ul ul" id="code_115563_configuration__ul_hkf_zc3_41c" data-ofbid="code_115563_configuration__ul_hkf_zc3_41c">
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Archive</strong>: The process allows archiving;</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Outputs</strong>: The process allows outputs;</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Communication</strong>: The process allows
+                                            communications.</li>
+                                    </ul></li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_ikf_zc3_41c" src="images/code_115563_configuration_fig4.png" height="252" width="609"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 4</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Process configuration (example).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Finally, click <strong class="+ topic/ph hi-d/b ph b">Create</strong>.</p>
+                            <p class="- topic/p p">You can also search a process already configured, using its name and
+                                context.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_jkf_zc3_41c" src="images/code_115563_configuration_fig5.png" height="140" width="756"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 5</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Process search.</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_kkf_zc3_41c" src="images/code_115563_configuration_fig6.png" height="222" width="763"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 6</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Process search by name and context.</span></figcaption></figure>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd"><span class="- topic/ph ph" id="code_115563_configuration__Toc135828596">Create the documents associated with the
+                                process</span></span>
+                        <div class="- topic/itemgroup task/info itemgroup info">
+                            <p class="- topic/p p">After creating the process, click <strong class="+ topic/ph hi-d/b ph b">Manage</strong> in the process. You
+                                can edit the process, remove it and create documents associated with
+                                it.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_f5v_kd3_41c" src="images/code_115563_configuration_fig7.png" height="206" width="764"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 7</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Process details.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">To create a document, click <strong class="+ topic/ph hi-d/b ph b">Create document</strong> and complete the
+                                fields displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_g5v_kd3_41c" src="images/code_115563_configuration_fig8.png" height="370" width="762"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 8</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new document type (I).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_h5v_kd3_41c" data-ofbid="code_115563_configuration__ul_h5v_kd3_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Id of document type</strong>: Id of the document type.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Process</strong>: Name of the process linked to the event.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Confidentiality</strong>: Specifies whether the document is
+                                    confidential or not.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Outputs</strong>: Specifies whether the document allows outputs or
+                                    not. If it does not, then the document will not be available if
+                                    you want to add it to the event linked to this process, as you
+                                    will see later in this document.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Description</strong>: Description of the document type.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Comments:</strong> Comments.</li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_i5v_kd3_41c" src="images/code_115563_configuration_fig9.png" height="377" width="764"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 9</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new document type (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then, click <strong class="+ topic/ph hi-d/b ph b">Next</strong> and select the supported formats for the type
+                                of document. The following formats are available:</p>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_j5v_kd3_41c" data-ofbid="code_115563_configuration__ul_j5v_kd3_41c">
+                                <li class="- topic/li li">All – all formats are supported;</li>
+                                <li class="- topic/li li">.pdf;</li>
+                                <li class="- topic/li li">.jpeg;</li>
+                                <li class="- topic/li li">.jpg;</li>
+                                <li class="- topic/li li">.bmp;</li>
+                                <li class="- topic/li li">.png;</li>
+                                <li class="- topic/li li">.bpm;</li>
+                                <li class="- topic/li li">.doc;</li>
+                                <li class="- topic/li li">.xls;</li>
+                                <li class="- topic/li li">.xlsx;</li>
+                                <li class="- topic/li li">other – you can choose another format.</li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_k5v_kd3_41c" src="images/code_115563_configuration_fig10.png" height="295" width="764"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 10</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new document type (III).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then, click <strong class="+ topic/ph hi-d/b ph b">Next</strong> and select the document type metadata.
+                                Metadata is data that provides information about other data. It is
+                                used for discovery and identification. For example, if you want to
+                                know more information about a receipt, you must specify that the
+                                RECEIPT_ID metadata is mandatory. However, the more metadata you
+                                provide, the more chances you have of finding the specific
+                                receipt.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_l5v_kd3_41c" src="images/code_115563_configuration_fig11.png" height="376" width="760"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 11</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new document type (IV).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Click <strong class="+ topic/ph hi-d/b ph b">Save</strong>. The document is created.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_m5v_kd3_41c" src="images/code_115563_configuration_fig12.png" height="167" width="768"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 12</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new document type (V).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">You can create as many documents as necessary.</p>
+                        </div>
+                    </li>
+                </ol>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd"><strong class="+ topic/ph hi-d/b ph b"><span class="- topic/ph ph" id="code_115563_configuration__Toc135828597">Attributes configuration</span></strong></span>
+                <div class="- topic/itemgroup task/info itemgroup info">
+                    <p class="- topic/p p">To configure an attribute of a certain type, follow the steps below.</p>
+                </div>
+                <ol class="- topic/ol task/substeps ol substeps">
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd">Create attribute</span>
+                        <div class="- topic/itemgroup task/info itemgroup info">Go to the attribute configuration area, in <strong class="+ topic/ph hi-d/b ph b">Configuration _
+                                Attributes</strong>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_n2y_j23_41c" src="images/code_115563_configuration_fig13.png"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 13</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of attribute: attribute configuration
+                                        (I).</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_o2y_j23_41c" src="images/code_115563_configuration_fig14.png" height="266" width="476"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 14</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of attribute: attribute configuration
+                                        (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">To create an attribute, click the <strong class="+ topic/ph hi-d/b ph b">Create attribute</strong> button and
+                                complete the fields displayed, as indicated below.</p><div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_p2y_j23_41c" src="images/code_115563_configuration_fig15.png" height="202" width="391"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 15</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of attribute: attribute configuration
+                                        (III).</span></figcaption></figure>
+                            </div><ul class="- topic/ul ul" id="code_115563_configuration__ul_q2y_j23_41c" data-ofbid="code_115563_configuration__ul_q2y_j23_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Type of attributes</strong>: Type of the attribute. You can choose
+                                    if the attribute will be of type enricher, dispatch or
+                                    notification.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Activate attribute</strong>: Attribute is active if selected.</li>
+                            </ul><p class="- topic/p p">If you select the notification type attribute, complete the
+                                fields displayed as indicated below.</p><div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_m5z_lvm_41c" src="images/code_115563_configuration_fig16.png" height="152" width="705"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 16</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of notification type attribute: attribute
+                                        configuration (IV).</span></figcaption></figure>
+                            </div><ul class="- topic/ul ul" id="code_115563_configuration__ul_acw_4vm_41c" data-ofbid="code_115563_configuration__ul_acw_4vm_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Type</strong>: Type of the attribute with the following
+                                        options:<ul class="- topic/ul ul" id="code_115563_configuration__ul_bcw_4vm_41c" data-ofbid="code_115563_configuration__ul_bcw_4vm_41c">
+                                        <li class="- topic/li li">QUEUE;</li>
+                                        <li class="- topic/li li">TOPIC.</li>
+                                    </ul></li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Description</strong>: Attribute description.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Name</strong>: Attribute name.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Target</strong>: Attribute target.</li>
+                            </ul><div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_ccw_4vm_41c" src="images/code_115563_configuration_fig17.png" height="149" width="708"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 17</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of notification type attribute: attribute
+                                        configuration (V).</span></figcaption></figure>
+                            </div><p class="- topic/p p">If you select the dispatch type attribute, complete the fields
+                                displayed as indicated below.</p><div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_pqk_svm_41c" src="images/code_115563_configuration_fig18.png" height="184" width="454"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 18</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of dispatch type attribute: attribute
+                                        configuration (IV).</span></figcaption></figure>
+                            </div><ul class="- topic/ul ul" id="code_115563_configuration__ul_qqk_svm_41c" data-ofbid="code_115563_configuration__ul_qqk_svm_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Type</strong>: Name of the dispatch type attribute.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Description</strong>: Attribute description.</li>
+                            </ul><div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_rqk_svm_41c" src="images/code_115563_configuration_fig19.png" height="189" width="445"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 19</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of dispatch type attribute: attribute
+                                        configuration (V).</span></figcaption></figure>
+                            </div><p class="- topic/p p">If you select the enricher type attribute, complete the fields
+                                displayed as indicated below.</p><div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_ddb_wvm_41c" src="images/code_115563_configuration_fig20.png" height="183" width="706"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 20</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of enricher type attribute: attribute
+                                        configuration (IV).</span></figcaption></figure>
+                            </div><ul class="- topic/ul ul" id="code_115563_configuration__ul_edb_wvm_41c" data-ofbid="code_115563_configuration__ul_edb_wvm_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Type</strong>: You can choose EJB or REST type.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Description</strong>: Attribute description.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Name</strong>: Attribute name.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Target</strong>: Attribute target.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">User name</strong>: User name.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Password</strong>: Password.</li>
+                            </ul><div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_fdb_wvm_41c" src="images/code_115563_configuration_fig21.png" height="184" width="710"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 21</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of enricher type attribute: attribute
+                                        configuration (V).</span></figcaption></figure>
+                            </div><p class="- topic/p p">Then click <strong class="+ topic/ph hi-d/b ph b">Save</strong> and the attribute is created.</p><div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_y3d_zvm_41c" src="images/code_115563_configuration_fig22.png" height="219" width="710"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 22</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of attribute: attribute configuration
+                                        (VI).</span></figcaption></figure>
+                            </div><p class="- topic/p p">You can search an attribute already configured, using its type
+                                and name.</p><div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_z3d_zvm_41c" src="images/code_115563_configuration_fig23.png" height="131" width="714"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 23</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of attribute: attribute search.</span></figcaption></figure>
+                            </div><div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_ajd_zvm_41c" src="images/code_115563_configuration_fig24.png" height="219" width="710"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 24</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of attribute: attribute search by type and
+                                        name.</span></figcaption></figure>
+                            </div></div>
+                    </li>
+                </ol>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd"><strong class="+ topic/ph hi-d/b ph b">Events configuration</strong></span>
+                <div class="- topic/itemgroup task/info itemgroup info">To configure an event, follow the steps below.</div>
+                <ol class="- topic/ol task/substeps ol substeps">
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd"><span class="- topic/ph ph" id="code_115563_configuration__Toc135828602">Create a new event linked to an existing
+                                process</span></span>
+                        <div class="- topic/itemgroup task/info itemgroup info">
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_eh5_hbn_41c" src="images/code_115563_configuration_fig25.png"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 25</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                new event linked to an existing process: events configuration
+                                (I).</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_fh5_hbn_41c" src="images/code_115563_configuration_fig26.png" height="354" width="760"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 26</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                new event linked to an existing process: events configuration
+                                (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">To create an event, click <strong class="+ topic/ph hi-d/b ph b">Add event</strong> and complete the fields
+                                displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_gh5_hbn_41c" src="images/code_115563_configuration_fig27.png" height="223" width="634"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 27</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                new event linked to an existing process: events configuration
+                                (III).</span></figcaption></figure>
+                            </div><ul class="- topic/ul ul" id="code_115563_configuration__ul_hh5_hbn_41c" data-ofbid="code_115563_configuration__ul_hh5_hbn_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Event</strong>: Event name. The event name must be different from
+                                    the existing event names.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Process</strong>: Select the process you want to link to the
+                                    event. Only existing processes should appear in the process
+                                    list.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Expiration time</strong>: Specifies how long documents associated
+                                    with this event will be available after being generated. '0
+                                    days' indicates that generated documents are never deleted.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Description</strong>: Description of the event.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Active actions</strong>: <ul class="- topic/ul ul" id="code_115563_configuration__ul_ih5_hbn_41c" data-ofbid="code_115563_configuration__ul_ih5_hbn_41c">
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Enricher</strong>: The enricher concept exists so that the
+                                            output data can be enriched with more information before
+                                            the output is generated. This can be used to inject in
+                                            the request some specific information that needs to be
+                                            sent to the output generation.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Get format</strong>: Prints the layout that is configured
+                                            for the document associated with the event. Note that in
+                                            the document this <strong class="+ topic/ph hi-d/b ph b">Get format</strong> action must also be
+                                            active so that it is possible to print the desired
+                                            layout, otherwise a PDF will be printed, with only the
+                                            information coming from the request.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Archive</strong>: It is possible to archive documents in
+                                            the document management area.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Notify</strong>: It sends the notification that is
+                                            associated with the event. Note that in the document
+                                            this <strong class="+ topic/ph hi-d/b ph b">Notify</strong> action must also be active so that it
+                                            is possible to send the notification.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Save</strong>: It is possible to transfer the generated
+                                            document in the output console (<strong class="+ topic/ph hi-d/b ph b">Output</strong>
+                                            menu).</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Immediate execution of the batch process</strong>: It is
+                                            possible to transfer the generated document in the
+                                            outputs console (<strong class="+ topic/ph hi-d/b ph b">Output</strong> menu) in cases where a
+                                            batch request is made. For this to work the <strong class="+ topic/ph hi-d/b ph b">Save</strong>
+                                            action must also be active.</li>
+                                    </ul></li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_jh5_hbn_41c" src="images/code_115563_configuration_fig28.png" height="276" width="762"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 28</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                new event linked to an existing process: events configuration
+                                (IV).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then click <strong class="+ topic/ph hi-d/b ph b">Save</strong> and the event is created.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_kh5_hbn_41c" src="images/code_115563_configuration_fig29.png" height="242" width="760"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 29</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                new event linked to an existing process: events configuration
+                                (V).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">You can remove the event or manage it.</p>
+                            <p class="- topic/p p">After creating the event, click <strong class="+ topic/ph hi-d/b ph b">Manage</strong> in the event.</p>
+                            <p class="- topic/p p">You can edit the event, add documents to it in the <strong class="+ topic/ph hi-d/b ph b">Documents</strong>
+                                tab, create a new enricher or associate an existing enricher with
+                                the event in the <strong class="+ topic/ph hi-d/b ph b">Enrichers</strong> tab and create a new notification
+                                or associate an existing notification with the event in the
+                                    <strong class="+ topic/ph hi-d/b ph b">Notifications</strong> tab.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_lh5_hbn_41c" src="images/code_115563_configuration_fig30.png" height="327" width="760"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 30</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                new event linked to an existing process: documents tab.</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_mh5_hbn_41c" src="images/code_115563_configuration_fig31.png" height="334" width="758"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 31</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                new event linked to an existing process: enrichers tab.</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_nh5_hbn_41c" src="images/code_115563_configuration_fig32.png" height="329" width="759"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 32</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                new event linked to an existing process: notifications tab.</span></figcaption></figure>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd"><span class="- topic/ph ph" id="code_115563_configuration__Toc135828603">Create a document associated with an
+                            event</span></span>
+                        <div class="- topic/itemgroup task/info itemgroup info">
+                            <p class="- topic/p p">In the <strong class="+ topic/ph hi-d/b ph b">Documents</strong> tab, click <strong class="+ topic/ph hi-d/b ph b">Add</strong> and complete the fields
+                                displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_bbx_ybn_41c" src="images/code_115563_configuration_fig33.png" height="327" width="760"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 33</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                document associated with an event: documents tab.</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_cbx_ybn_41c" src="images/code_115563_configuration_fig34.png" height="191" width="711"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 34</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                document associated with an event (I).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_dbx_ybn_41c" data-ofbid="code_115563_configuration__ul_dbx_ybn_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Id of document type</strong>: Here, only documents created in the
+                                    process linked to this event with an active outputs option are
+                                    available for selection.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Method of dispatch</strong>:<ul class="- topic/ul ul" id="code_115563_configuration__ul_ebx_ybn_41c" data-ofbid="code_115563_configuration__ul_ebx_ybn_41c">
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Only data</strong>: The shipped content comes in xml
+                                            format.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Complete content</strong>: The shipped content comes in
+                                            PDF format.</li>
+                                    </ul></li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Active actions</strong>: <ul class="- topic/ul ul" id="code_115563_configuration__ul_fbx_ybn_41c" data-ofbid="code_115563_configuration__ul_fbx_ybn_41c">
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Get format</strong>: Prints the layout that is configured
+                                            for the document associated with the event. Note that in
+                                            the event this <strong class="+ topic/ph hi-d/b ph b">Get format</strong> action must also be
+                                            active so that it is possible to print the desired
+                                            layout, otherwise a PDF will be printed, with only the
+                                            information coming from the request.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Index</strong>: It indexes the document.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Archive</strong>: It is possible to archive documents in
+                                            the document management area.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Dispatch</strong>: It sends the dispatch that is
+                                            associated with the document associated with the
+                                            event.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Notify</strong>: It sends the notification that is
+                                            associated with the event. Note that in the document
+                                            this <strong class="+ topic/ph hi-d/b ph b">Notify</strong> action must also be active so that it
+                                            is possible to send the notification.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Transform</strong>: Gets the content that will be sent to
+                                            the outputs in xml if not selected or converts it to
+                                            JSON if selected.</li>
+                                    </ul></li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_gbx_ybn_41c" src="images/code_115563_configuration_fig35.png" height="197" width="752"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 35</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                document associated with an event (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p"> </p>
+                            <p class="- topic/p p">Then, click <strong class="+ topic/ph hi-d/b ph b">Save</strong> and the document associated with the event is
+                                created.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_hbx_ybn_41c" src="images/code_115563_configuration_fig36.png" height="314" width="712"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 36</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                document associated with an event (III).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">After creating the document, you can manage the document or delete
+                                it.</p>
+                        </div>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd"><span class="- topic/ph ph" id="code_115563_configuration__Toc135828604">Add a dispatch to the document associated with an
+                                event</span></span>
+                        <div class="- topic/itemgroup task/info itemgroup info">
+                            <p class="- topic/p p">After creating the document, click <strong class="+ topic/ph hi-d/b ph b">Manage</strong> in the document. To
+                                edit the document, click <strong class="+ topic/ph hi-d/b ph b">Edit</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_zjv_fcn_41c" src="images/code_115563_configuration_fig37.png" height="261" width="714"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 37</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Add a
+                                dispatch to the document associated with an event: document
+                                management area.</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_akv_fcn_41c" src="images/code_115563_configuration_fig38.png" height="308" width="713"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 38</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Add a
+                                dispatch to the document associated with an event: event edit
+                                mode.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">In the edit mode, in the <strong class="+ topic/ph hi-d/b ph b">Dispatches</strong> tab, click <strong class="+ topic/ph hi-d/b ph b">Add</strong> and
+                                complete the field displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_bkv_fcn_41c" src="images/code_115563_configuration_fig39.png" height="306" width="714"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 39</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Add a
+                                dispatch to the document associated with an event: add an existing
+                                dispatch to the document (I).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_ckv_fcn_41c" data-ofbid="code_115563_configuration__ul_ckv_fcn_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Description</strong>: Description of the dispatch.</li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_dkv_fcn_41c" src="images/code_115563_configuration_fig40.png" height="279" width="634"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 40</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Add a
+                                dispatch to the document associated with an event: add an existing
+                                dispatch to the document (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">To add a new dispatch to the document, click <strong class="+ topic/ph hi-d/b ph b">Create</strong> and
+                                complete the fields displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_ekv_fcn_41c" src="images/code_115563_configuration_fig41.png" height="321" width="760"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 41</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Add a
+                                dispatch to the document associated with an event: add an existing
+                                dispatch to the document (III).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_fkv_fcn_41c" data-ofbid="code_115563_configuration__ul_fkv_fcn_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Type</strong>: Type of the dispatch.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Description</strong>: Description of the dispatch.</li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_gkv_fcn_41c" src="images/code_115563_configuration_fig42.png" height="328" width="763"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 42</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Add a
+                                dispatch to the document associated with an event: add an existing
+                                dispatch to the document (IV).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then, click <strong class="+ topic/ph hi-d/b ph b">Save</strong>. The new dispatch is created but it is not
+                                immediately associated with the document, since it is necessary to
+                                search for the newly created dispatch by completing the description,
+                                as shown below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_hkv_fcn_41c" src="images/code_115563_configuration_fig43.png" height="308" width="633"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 43</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Add a
+                                dispatch to the document associated with an event: add an existing
+                                dispatch to the document (V).</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_ikv_fcn_41c" src="images/code_115563_configuration_fig44.png" height="290" width="634"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 44</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Add a
+                                dispatch to the document associated with an event: add an existing
+                                dispatch to the document (VI).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Click <strong class="+ topic/ph hi-d/b ph b">Save</strong>. The dispatches are then associated with the
+                                document. Dispatches can then be removed from the document, if
+                                desired.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_jkv_fcn_41c" src="images/code_115563_configuration_fig45.png" height="256" width="635"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 45</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Add a
+                                dispatch to the document associated with an event: add an existing
+                                dispatch to the document (VII).</span></figcaption></figure>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd"><span class="- topic/ph ph" id="code_115563_configuration__Toc135828605">Create a layout associated with a document
+                                associated with an event</span></span>
+                        <div class="- topic/itemgroup task/info itemgroup info">
+                            <p class="- topic/p p">After creating the document, click <strong class="+ topic/ph hi-d/b ph b">Manage</strong> in the document. You
+                                can edit the document by clicking <strong class="+ topic/ph hi-d/b ph b">Edit</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_fmc_pcn_41c" src="images/code_115563_configuration_fig46.png" height="246" width="633"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 46</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of
+                                a layout associated with a document associated with an event:
+                                document management area.</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_gmc_pcn_41c" src="images/code_115563_configuration_fig47.png" height="302" width="634"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 47</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of
+                                a layout associated with a document associated with an event: event
+                                edit mode.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">In edit mode, in the <strong class="+ topic/ph hi-d/b ph b">Layouts</strong> tab, click <strong class="+ topic/ph hi-d/b ph b">Add</strong> and
+                                complete the field displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_hmc_pcn_41c" src="images/code_115563_configuration_fig48.png" height="262" width="634"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 48</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a layout associated with a document
+                                        associated with an event: Layouts tab.</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_imc_pcn_41c" src="images/code_115563_configuration_fig49.png" height="309" width="758"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 49</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                layout associated with a document associated with an event(I).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_jmc_pcn_41c" data-ofbid="code_115563_configuration__ul_jmc_pcn_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Name</strong>: Path where the layout is located</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Layout type</strong>:<ul class="- topic/ul ul" id="code_115563_configuration__ul_kmc_pcn_41c" data-ofbid="code_115563_configuration__ul_kmc_pcn_41c">
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Generic</strong>: If you choose this option, then the
+                                            indicated layout in the <strong class="+ topic/ph hi-d/b ph b">Name</strong> field is what is
+                                            printed by default.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Product</strong>: If you choose this option, then you will
+                                            have to specify the product (note: the product consists
+                                            of four digits), and it will mean that, for that
+                                            product, the layout that you specify in the <strong class="+ topic/ph hi-d/b ph b">Name</strong>
+                                            field will be the one that will be printed.</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Product class</strong>: If you choose this option, then
+                                            you will have to specify the class of an existing
+                                            product (note: the class consists of two digits), and it
+                                            will mean that, for the products of this class, the
+                                            layout that you specify in the <strong class="+ topic/ph hi-d/b ph b">Name</strong> field will be
+                                            the one that will be printed.</li>
+                                    </ul></li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_lmc_pcn_41c" src="images/code_115563_configuration_fig50.png" height="319" width="762"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 50</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                layout associated with a document associated with an event (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then, click <strong class="+ topic/ph hi-d/b ph b">Save</strong>. The layout is now associated with the
+                                document. </p>
+                            <p class="- topic/p p">Click <strong class="+ topic/ph hi-d/b ph b">Save</strong> to save the changes made to the document.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_mmc_pcn_41c" src="images/code_115563_configuration_fig51.png" height="266" width="633"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 51</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                layout associated with a document associated with an event
+                                (III).</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_nmc_pcn_41c" src="images/code_115563_configuration_fig52.png" height="230" width="634"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 52</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a
+                                layout associated with a document associated with an event (IV).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">You can associate more than one layout with the document, which
+                                allows having a different layout for each product, for example.
+                                Layouts can then be removed from the document, if desired. </p>
+                        </div>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd"><span class="- topic/ph ph" id="code_115563_configuration__Toc135828606">Associate an enricher with an event</span></span>
+                        <div class="- topic/itemgroup task/info itemgroup info">
+                            <p class="- topic/p p">In the <strong class="+ topic/ph hi-d/b ph b">Enrichers</strong> tab, click <strong class="+ topic/ph hi-d/b ph b">Associate</strong> to associate an
+                                enricher with an event. </p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_phn_ycn_41c" src="images/code_115563_configuration_fig53.png" height="269" width="634"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 53</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association of an enricher with an event: Enrichers
+                                        tab.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p"> </p>
+                            <p class="- topic/p p">Then complete the field displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_qhn_ycn_41c" src="images/code_115563_configuration_fig54.png" height="307" width="760"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 54</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event (I).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_rhn_ycn_41c" data-ofbid="code_115563_configuration__ul_rhn_ycn_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Select an enricher</strong>: Here you can select an enricher
+                                    already configured.</li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_shn_ycn_41c" src="images/code_115563_configuration_fig55.png" height="312" width="761"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 55</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then, click <strong class="+ topic/ph hi-d/b ph b">Associate</strong>. The enricher is now associated with the
+                                event. </p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_thn_ycn_41c" src="images/code_115563_configuration_fig56.png" height="279" width="634"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 56</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event (III).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">In the <strong class="+ topic/ph hi-d/b ph b">Enrichers</strong> tab, click <strong class="+ topic/ph hi-d/b ph b">Create</strong> to create and at the
+                                same time associate an enricher with the event. Then complete the
+                                fields displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_uhn_ycn_41c" src="images/code_115563_configuration_fig57.png" height="326" width="761"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 57</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event (IV).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_vhn_ycn_41c" data-ofbid="code_115563_configuration__ul_vhn_ycn_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Name</strong>: Name of the enricher.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Description</strong>: Description of the enricher.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Type</strong>:<ul class="- topic/ul ul" id="code_115563_configuration__ul_whn_ycn_41c" data-ofbid="code_115563_configuration__ul_whn_ycn_41c">
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">EJB</strong>;</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">REST</strong>;</li>
+                                    </ul></li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Target</strong>: Target of the enricher. This field cannot contain
+                                    spaces between letters.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">User name</strong>: The user name.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Password</strong>: The password.</li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_xhn_ycn_41c" src="images/code_115563_configuration_fig58.png" height="329" width="761"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 58</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event (V).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then click <strong class="+ topic/ph hi-d/b ph b">Create</strong>. The enricher is now created and associated
+                                with the event.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_yhn_ycn_41c" src="images/code_115563_configuration_fig59.png" height="299" width="635"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 59</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event (VI).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p"> </p>
+                            <p class="- topic/p p">To view details of the associated enricher, click <strong class="+ topic/ph hi-d/b ph b">Actions</strong> in
+                                the line corresponding to the enricher and then click <strong class="+ topic/ph hi-d/b ph b">View
+                                    details</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_zhn_ycn_41c" src="images/code_115563_configuration_fig60.png" height="301" width="664"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 60</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event: Actions _ View details.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">The enricher details are then displayed.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_a3n_ycn_41c" src="images/code_115563_configuration_fig61.png" height="341" width="758"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 61</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event: enricher details.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">To edit the associated enricher, click <strong class="+ topic/ph hi-d/b ph b">Actions</strong> in the line
+                                corresponding to the enricher and then click <strong class="+ topic/ph hi-d/b ph b">Edit
+                                enricher</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_b3n_ycn_41c" src="images/code_115563_configuration_fig62.png" height="301" width="664"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 62</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event: Actions _ Edit enricher.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">The enricher edit window is displayed. Here you can make changes to
+                                any of the fields.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_c3n_ycn_41c" src="images/code_115563_configuration_fig63.png" height="333" width="756"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 63</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event: edit enricher.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">To deactivate the associated enricher, click <strong class="+ topic/ph hi-d/b ph b">Actions</strong> in the
+                                line corresponding to the enricher and then click
+                                <strong class="+ topic/ph hi-d/b ph b">Deactivate</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_d3n_ycn_41c" src="images/code_115563_configuration_fig64.png" height="301" width="664"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 64</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event: Actions _ Deactivate.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">The <strong class="+ topic/ph hi-d/b ph b">Deactivate event enricher</strong> window is displayed. To
+                                deactivate the enricher, click <strong class="+ topic/ph hi-d/b ph b">Deactivate</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_e3n_ycn_41c" src="images/code_115563_configuration_fig65.png" height="345" width="756"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 65</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event: deactivate an enricher (I).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">The enricher is now deactivated.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_f3n_ycn_41c" src="images/code_115563_configuration_fig66.png" height="332" width="756"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 66</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event: deactivate an enricher (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">To remove the association between the enricher and the event, click
+                                    <strong class="+ topic/ph hi-d/b ph b">Actions</strong> in the line corresponding to the enricher and
+                                then click <strong class="+ topic/ph hi-d/b ph b">Remove association</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_g3n_ycn_41c" src="images/code_115563_configuration_fig67.png" height="301" width="664"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 67</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event: Actions _ Remove association.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">The <strong class="+ topic/ph hi-d/b ph b">Remove event enricher</strong> window is displayed. To remove the
+                                enricher, click <strong class="+ topic/ph hi-d/b ph b">Remove</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_h3n_ycn_41c" src="images/code_115563_configuration_fig68.png" height="328" width="758"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 68</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event: remove enricher association with event
+                                (I).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">The enricher is now removed.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_i3n_ycn_41c" src="images/code_115563_configuration_fig69.png" height="318" width="757"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 69</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of an enricher with an event: remove enricher association with event
+                                (II).</span></figcaption></figure>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd"><span class="- topic/ph ph" id="code_115563_configuration__Toc135828607">Associate a notification with an event</span></span>
+                        <div class="- topic/itemgroup task/info itemgroup info">
+                            <p class="- topic/p p">In the <strong class="+ topic/ph hi-d/b ph b">Notifications</strong> tab, click <strong class="+ topic/ph hi-d/b ph b">Associate</strong> to associate
+                                a notification with an event. </p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_ffp_ndn_41c" src="images/code_115563_configuration_fig70.png" height="270" width="634"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 70</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of a notification with an event: tab Notifications.</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then complete the field displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_gfp_ndn_41c" src="images/code_115563_configuration_fig71.png" height="306" width="763"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 71</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of a notification with an event (I).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_hfp_ndn_41c" data-ofbid="code_115563_configuration__ul_hfp_ndn_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Select a notification destination</strong>: Here you can select a
+                                    notification already configured.</li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_ifp_ndn_41c" src="images/code_115563_configuration_fig72.png" height="309" width="762"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 72</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of a notification with an event (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then click <strong class="+ topic/ph hi-d/b ph b">Associate</strong>. The notification is now associated with
+                                the event. </p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_jfp_ndn_41c" src="images/code_115563_configuration_fig73.png" height="320" width="759"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 73</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of a notification with an event (III).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">In the <strong class="+ topic/ph hi-d/b ph b">Notifications</strong> tab, click <strong class="+ topic/ph hi-d/b ph b">Create</strong> to create and at
+                                the same time associate a notification with the event. Then complete
+                                the fields displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_kfp_ndn_41c" src="images/code_115563_configuration_fig74.png" height="328" width="760"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 74</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of a notification with an event (IV).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_lfp_ndn_41c" data-ofbid="code_115563_configuration__ul_lfp_ndn_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Name</strong>: Name of the notification.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Description</strong>: Description of the notification.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Type</strong>:<ul class="- topic/ul ul" id="code_115563_configuration__ul_mfp_ndn_41c" data-ofbid="code_115563_configuration__ul_mfp_ndn_41c">
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">QUEUE</strong>;</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">TOPIC</strong>;</li>
+                                    </ul></li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Target</strong>: Target of the notification. This field cannot
+                                    contain spaces between letters.</li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 75</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of a notification with an event (V).</span></figcaption></figure><img class="- topic/image image" id="code_115563_configuration__image_nfp_ndn_41c" src="images/code_115563_configuration_fig75.png" height="323" width="757"/></div>
+                            <p class="- topic/p p">Then, click <strong class="+ topic/ph hi-d/b ph b">Create</strong>. The notification is now created and
+                                associated with the event.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_ofp_ndn_41c" src="images/code_115563_configuration_fig76.png" height="302" width="635"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 76</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of a notification with an event (VI).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">To remove the associated notification from the event, click <strong class="+ topic/ph hi-d/b ph b">Remove
+                                    from event</strong> in the line corresponding to the
+                                notification.</p>
+                            <p class="- topic/p p">The <strong class="+ topic/ph hi-d/b ph b">Remove event notification</strong> window is displayed. To remove
+                                the notification, click <strong class="+ topic/ph hi-d/b ph b">Remove</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_pfp_ndn_41c" src="images/code_115563_configuration_fig77.png" height="297" width="665"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 77</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of a notification with an event: remove a notification (I).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">The notification is now removed.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                <img class="- topic/image image" id="code_115563_configuration__image_qfp_ndn_41c" src="images/code_115563_configuration_fig78.png" height="276" width="633"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 78</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Association
+                                of a notification with an event: remove a notification (II).</span></figcaption></figure>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd"><strong class="+ topic/ph hi-d/b ph b"><span class="- topic/ph ph" id="code_115563_configuration__Toc135828608">Communications configuration</span></strong></span>
+                <div class="- topic/itemgroup task/info itemgroup info">
+                    <p class="- topic/p p">To configure a communication, follow the steps below.</p>
+                </div>
+                <ol class="- topic/ol task/substeps ol substeps">
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd"><span class="- topic/ph ph" id="code_115563_configuration__Toc135828609">Create new communication</span></span>
+                        <div class="- topic/itemgroup task/info itemgroup info">
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_jsm_m5n_41c" src="images/code_115563_configuration_fig79.png"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 79</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new communication: communication
+                                        configuration (I).</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_ksm_m5n_41c" src="images/code_115563_configuration_fig80.png" height="198" width="682"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 80</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new communication: communication
+                                        configuration (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">To create a communication, click <strong class="+ topic/ph hi-d/b ph b">Create communication</strong> and
+                                complete the fields displayed, as indicated below.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_lsm_m5n_41c" src="images/code_115563_configuration_fig81.png" height="252" width="683"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 81</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new communication (I).</span></figcaption></figure>
+                            </div>
+                            <ul class="- topic/ul ul" id="code_115563_configuration__ul_msm_m5n_41c" data-ofbid="code_115563_configuration__ul_msm_m5n_41c">
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Name</strong>: Name of the communication.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Process</strong>: The list of processes that have the
+                                        <strong class="+ topic/ph hi-d/b ph b">Communication</strong> option selected in the context field
+                                    will appear.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Event</strong>: The list of events linked to the selected process
+                                    will appear.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Document type</strong>: The list of documents associated with the
+                                    process selected will appear.</li>
+                                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Communication options</strong>:<ul class="- topic/ul ul" id="code_115563_configuration__ul_nsm_m5n_41c" data-ofbid="code_115563_configuration__ul_nsm_m5n_41c">
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Archive</strong>: The communication allows archive;</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Dispatch</strong>: The communication allows dispatch;</li>
+                                        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">Confidential</strong>: Specifies whether the communication
+                                            is confidential or not.</li>
+                                    </ul></li>
+                            </ul>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_osm_m5n_41c" src="images/code_115563_configuration_fig82.png" height="250" width="682"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 82</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new communication (II).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then, click <strong class="+ topic/ph hi-d/b ph b">Next</strong>.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_psm_m5n_41c" src="images/code_115563_configuration_fig83.png" height="378" width="683"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 83</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new communication (III).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Here you can drag and drop different form components to build the
+                                communication.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_qsm_m5n_41c" src="images/code_115563_configuration_fig84.png" height="370" width="682"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 84</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new communication (IV).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Then, click <strong class="+ topic/ph hi-d/b ph b">Save</strong> and the communication will be created.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_rsm_m5n_41c" src="images/code_115563_configuration_fig85.png" height="200" width="681"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 85</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new communication (V).</span></figcaption></figure>
+                            </div>
+                            <p class="- topic/p p">Later you can edit or delete the communication.</p>
+                            <p class="- topic/p p">You can also search a communication already configured, using the
+                                    <strong class="+ topic/ph hi-d/b ph b">Process</strong> and <strong class="+ topic/ph hi-d/b ph b">Communication</strong> attributes.</p>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_ssm_m5n_41c" src="images/code_115563_configuration_fig86.png" height="120" width="680"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 86</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new communication: communication
+                                        search.</span></figcaption></figure>
+                            </div>
+                            <div class="- topic/p p">
+                                <figure class="- topic/fig fig fignone">
+                                    
+                                    <img class="- topic/image image" id="code_115563_configuration__image_tsm_m5n_41c" src="images/code_115563_configuration_fig87.png" height="206" width="682"/>
+                                <figcaption data-caption-side="bottom" class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure<span class="fig--title-label-number"> 87</span><span class="fig--title-label-punctuation">. </span></span><span class="fig--title">Creation of a new communication: communication search by
+                                        process and communication.</span></figcaption></figure>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </li></ul></section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relinfo"><strong>Related information</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="code_115563_functional.html" title="This feature provides a console that allows configuring the flow steps and actions for each event that might generate an output.">
+                Functional description</a></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div>
+<!--    <span>
+        Generated by <a class="oxyFooter" href="http://www.oxygenxml.com/xml_webhelp.html" target="_blank">
+            &lt;oXygen/&gt; XML WebHelp
+        </a> 
+    </span>-->
+    
+    <div class="copyright_info">
+        <span class="copyright_years">
+            ©2024
+        </span>
+        <span class="organization">
+            Cleva Solutions, S.A. 
+        </span>
+        <span> All rights reserved. | </span>
+        <a href="../../../../support/reuse/copyright.html">Copyright</a>
+        <span>| Last updated: </span>
+        2025-01-07.
+    </div>
+</div>
+  </div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        <script type="text/javascript">
+<!--    
+    const list = document.querySelectorAll(".wh_child_links .ulchildlink, .wh_child_links .wh_tile");
+    Array.prototype.forEach.call(list, function (tile) {
+        tile.addEventListener('click', event => {
+        tile.querySelector('a').click();
+    });
+    });
+    
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all description elements
+        document.querySelectorAll(".flip-card-back-child .desc").forEach(desc => {
+            const maxLength = 210; // Set the maximum character length
+            const fullText = desc.textContent.trim(); // Get the full description
+
+            // Only truncate if the text exceeds the max length
+            if (fullText.length > maxLength) {
+                // Ensure no mid-word truncation
+                const truncatedText = fullText.substring(0, maxLength).trim();
+                const lastSpaceIndex = truncatedText.lastIndexOf(" ");
+                const finalText = truncatedText.substring(0, lastSpaceIndex) + "...(+)";
+
+                // Replace the description with the truncated version
+                desc.textContent = finalText;
+
+            }
+        });
+    });   
+   
+-->
+</script>
+        
+    </body>
+</html>

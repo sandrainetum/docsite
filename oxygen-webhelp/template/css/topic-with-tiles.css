@@ -1,0 +1,555 @@
+:root {
+    --primary-color: #596FB3;
+    --secondary-color: #232d4b;
+    --accent-color: #19AA9B;
+    --bloc-color: #F2F4F9;
+    --cleva-bloc-color: #fbfbfb;
+    --primary-extra-light: #f1f2fe;
+    --primary-extra-light-contrast: #111724;
+    --box-shadow-medium: #00000021;
+    --box-shadow-light: #0000001c;
+    --cleva-font: Roboto, sans-serif;
+    
+}
+
+/*>>>>>>>>Standard pages (estilo feature list)>>>>>>>>>>*/
+
+
+.wh_child_links li{
+    margin-bottom: 10px;
+/*    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 12px;*/
+    border-top: 1px solid #d3d3d3;
+    padding-top: 12px;
+}
+
+.wh_child_links .link a{
+    font-weight: bold;
+    color: var(--accent-color) !important;
+}
+
+.wh_child_links li:last-of-type{
+    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 12px;
+}
+
+
+
+
+/*>>>>>>>>FEATURE LIST>>>>>>>>>>*/
+
+/*.cleva_feature_list .wh_child_links li{
+    margin-bottom: 10px;
+/\*    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 12px;*\/
+    border-top: 1px solid #d3d3d3;
+    padding-top: 12px;
+}
+
+.cleva_feature_list .wh_child_links .link a{
+    font-weight: bold;
+    color: var(--primary-color) !important;
+}*/
+
+/*>>>>>>>>FEATURE DESCRIPTION>>>>>>>>>>*/
+
+/*.cleva_feature_description .wh_child_links li{
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 12px;
+}
+
+.cleva_feature_description .wh_child_links .link a{
+    font-weight: bold;
+    color: var(--primary-color) !important;
+}
+
+/\*>>>>>>>>FEATURE CONFIGURATION>>>>>>>>>>*\/
+
+.cleva_feature_configuration .wh_child_links li{
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 12px;
+}
+
+.cleva_feature_configuration .wh_child_links .link a{
+    font-weight: bold;
+    color: var(--primary-color) !important;*/
+}
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+.cleva_configuration_guide_intro .wh_child_links .link{
+/*    background-color: orange;*/
+    margin: 1em;
+    padding: 1em;
+    width: 30%;
+    min-width: 300px;
+    min-height: 140px;
+    background-color: var(--bloc-color);
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0.5em;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium),0 .3px .9px 0 var(--box-shadow-light);
+    
+    transition: transform .3s; /* Animation */
+}
+
+.cleva_configuration_guide_intro .wh_child_links .link:hover {
+  transform: scale(1.05); 
+}
+
+.cleva_functional_guide_intro .wh_child_links .link{
+/*    background-color: orange;*/
+    margin: 1em;
+    padding: 1em;
+    width: 30%;
+    min-width: 300px;
+    min-height: 140px;
+    background-color: var(--bloc-color);
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0.5em;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium),0 .3px .9px 0 var(--box-shadow-light);
+    transition: transform .3s; /* Animation */
+}
+
+.cleva_functional_guide_intro .wh_child_links .link:hover {
+  transform: scale(1.05); 
+}
+
+.cleva_legal_guide_intro .wh_child_links .link{
+/*    background-color: orange;*/
+    margin: 1em;
+    padding: 1em;
+    width: 30%;
+    min-width: 300px;
+    min-height: 140px;
+    background-color: var(--bloc-color);
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0.5em;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium),0 .3px .9px 0 var(--box-shadow-light);
+    transition: transform .3s; /* Animation */
+}
+
+.cleva_legal_guide_intro .wh_child_links .link:hover {
+  transform: scale(1.05); 
+}
+
+.cleva_business_documents_intro .wh_child_links .link{
+/*    background-color: orange;*/
+    margin: 1em;
+    padding: 1em;
+    width: 30%;
+    min-width: 300px;
+    min-height: 140px;
+    background-color: var(--bloc-color);
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0.5em;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium),0 .3px .9px 0 var(--box-shadow-light);
+    transition: transform .3s; /* Animation */
+}
+
+.cleva_business_documents_intro .wh_child_links .link:hover {
+  transform: scale(1.05); 
+}
+
+.cleva_catalogue_intro .wh_child_links .link{
+/*    background-color: orange;*/
+    margin: 1em;
+    padding: 1em;
+    width: 30%;
+    min-width: 300px;
+    min-height: 140px;
+    background-color: var(--bloc-color);
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0.5em;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium),0 .3px .9px 0 var(--box-shadow-light);
+    
+    transition: transform .3s; /* Animation */
+}
+
+
+.cleva_catalogue_intro .wh_child_links .link:hover {
+  transform: scale(1.05); 
+}
+
+.cleva_release_documentation_intro .wh_child_links .link{
+/*    background-color: orange;*/
+    margin: 1em;
+    padding: 1em;
+    width: 30%;
+    min-width: 300px;
+    min-height: 140px;
+    background-color: var(--bloc-color);
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0.5em;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium),0 .3px .9px 0 var(--box-shadow-light);
+    transition: transform .3s; /* Animation */
+}
+
+.cleva_release_documentation_intro .wh_child_links .link:hover {
+  transform: scale(1.05); 
+}
+
+.cleva_module_group_intro .wh_child_links .link{
+/*    background-color: green;*/
+    padding-top: 40px;
+    margin: 1em;
+/*    padding: 1em;*/
+    width: 20%;
+    min-width: 280px;
+    min-height: 110px;
+    background-color: var(--bloc-color);
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0.5em;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium),0 .3px .9px 0 var(--box-shadow-light);
+    transition: transform .3s; /* Animation */
+}
+
+.cleva_module_group_intro .wh_child_links .link:hover {
+  transform: scale(1.05); 
+}
+
+.cleva_module_intro .wh_child_links .link{
+/*    background-color: red;*/
+    margin: 1em;
+/*    padding: 1em;
+    width: 30%;
+    min-width: 300px;*/
+    min-height: 100px;
+    background-color: var(--cleva-bloc-color);
+    width: 0;
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0.5em;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium),0 .3px .9px 0 var(--box-shadow-light);    
+    padding-top: 36px;
+    min-width: 140px;
+    transition: transform .3s; /* Animation */
+    border: none;
+}
+
+.cleva_module_intro .wh_child_links .link:hover {
+  transform: scale(1.05); 
+}
+
+.cleva_release_intro .wh_child_links .link,
+.cleva_release_intro_flip .wh_child_links .link{
+    margin: 1em;
+/*    padding-top: 40px;*/
+/*    padding: 1em;*/
+    width: 22%;
+    min-width: 200px;
+    min-height: 110px;
+    background-color: var(--cleva-bloc-color);
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0.5em;
+    text-align: justify;
+    align-content: center;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium),0 .3px .9px 0 var(--box-shadow-light);
+    transition: transform .3s; /* Animation */
+    border: none;
+    padding: 0;
+}
+
+.cleva_release_intro .wh_child_links .link:hover,
+.cleva_release_intro_flip .wh_child_links .link:hover{
+  transform: scale(1.05); 
+}
+
+/*.wh_child_links .link {
+    margin: 1em;
+    padding: 1em;
+    width: 30%;
+    min-width: 300px;
+    min-height: 140px;
+    background-color: var(--bloc-color);
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0.5em;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium),0 .3px .9px 0 var(--box-shadow-light);
+}*/
+
+.cleva_release_documentation_intro .wh_child_links,
+.cleva_module_group_intro .wh_child_links,
+.cleva_module_intro .wh_child_links,
+.cleva_release_intro .wh_child_links,
+.cleva_catalogue_intro .wh_child_links,
+.cleva_business_documents_intro .wh_child_links,
+.cleva_legal_guide_intro .wh_child_links,
+.cleva_configuration_guide_intro .wh_child_links,
+.cleva_functional_guide_intro .wh_child_links,
+.cleva_release_intro_flip .wh_child_links{
+    border: none;
+    padding: 0;
+}
+
+/*.wh_child_links {
+    border: none;
+    padding: 0;
+}*/
+
+.cleva_release_documentation_intro .wh_child_links ul,
+.cleva_module_group_intro .wh_child_links ul,
+.cleva_module_intro .wh_child_links ul, 
+.cleva_release_intro .wh_child_links ul,
+.cleva_catalogue_intro .wh_child_links ul,
+.cleva_business_documents_intro .wh_child_links ul,
+.cleva_legal_guide_intro .wh_child_links ul,
+.cleva_configuration_guide_intro ul,
+.cleva_functional_guide_intro ul,
+.cleva_release_intro_flip .wh_child_links ul{
+    list-style:none;
+    display: flex;
+    flex-direction: row;
+/*    justify-content: space-between;*/
+    align-items: stretch;
+    align-content: stretch;
+    flex-wrap: wrap;
+}
+
+/*.wh_child_links ul {
+    list-style:none;
+    display: flex;
+    flex-direction: row;
+/\*    justify-content: space-between;*\/
+    align-items: stretch;
+    align-content: stretch;
+    flex-wrap: wrap;
+}*/
+
+
+@media only screen and (max-width: 1200px) {
+    .cleva_release_documentation_intro .wh_child_links .link,
+    .cleva_module_group_intro .wh_child_links .link,
+    .cleva_module_intro .wh_child_links .link,
+    .cleva_release_intro .wh_child_links .link,
+    .cleva_catalogue_intro .wh_child_links .link,
+    .cleva_business_documents_intro .wh_child_links .link,
+    .cleva_legal_guide_intro .wh_child_links .link,
+    .cleva_configuration_guide_intro .wh_child_links .link,
+    .cleva_functional_guide_intro .wh_child_links .link,
+    .cleva_release_intro_flip .wh_child_links .link{
+        width: 45%;
+    }
+}
+
+
+/*@media only screen and (max-width: 1200px) {
+    .wh_child_links .link {
+        width: 45%;
+    }
+}
+*/
+
+@media only screen and (max-width: 767px) {
+    .cleva_release_documentation_intro .wh_child_links .link,
+    .cleva_module_group_intro .wh_child_links .link,
+    .cleva_module_intro .wh_child_links .link,
+    .cleva_release_intro .wh_child_links .link,
+    .cleva_catalogue_intro .wh_child_links .link,
+    .cleva_business_documents_intro .wh_child_links .link,
+    .cleva_legal_guide_intro .wh_child_links .link,
+    .cleva_configuration_guide_intro .wh_child_links .link,
+    .cleva_functional_guide_intro .wh_child_links .link,
+    .cleva_release_intro_flip .wh_child_links .link{
+        width: 100%;
+        min-width: 240px;
+    }
+}
+
+/*@media only screen and (max-width: 767px) {
+    .wh_child_links .link {
+        width: 100%;
+        min-width: 240px;
+    }
+}
+*/
+.cleva_release_documentation_intro .wh_child_links .link strong,
+.cleva_module_group_intro .wh_child_links .link strong,
+.cleva_module_intro .wh_child_links .link strong,
+.cleva_release_intro .wh_child_links .link strong,
+.cleva_catalogue_intro .wh_child_links .link strong,
+.cleva_business_documents_intro .wh_child_links .link strong,
+.cleva_legal_guide_intro .wh_child_links .link strong,
+.cleva_configuration_guide_intro .wh_child_links .link strong,
+.cleva_functional_guide_intro .wh_child_links .link strong,
+.cleva_release_intro_fip .wh_child_links .link strong{
+    display: block;
+    width: 100%;
+}
+
+/*.wh_child_links .link strong {
+    display: block;
+    width: 100%;
+}*/
+
+.cleva_release_documentation_intro .wh_child_links .link .desc,
+.cleva_module_intro .wh_child_links .link .desc,
+.cleva_release_intro .wh_child_links .link .desc,
+.cleva_catalogue_intro .wh_child_links .link .desc,
+.cleva_business_documents_intro .wh_child_links .link .desc,
+.cleva_legal_guide_intro .wh_child_links .link .desc,
+.cleva_configuration_guide_intro .wh_child_links .link desc,
+.cleva_functional_guide_intro .wh_child_links .link desc{
+    margin-top: 1em;
+    text-align: center;
+    text-align: left;
+    color: var(--primary-extra-light-contrast);
+    font-size: 14px;
+    font-weight: 500;
+    
+    /*Temporário*/
+    display: none;
+}
+
+.cleva_module_group_intro .wh_child_links .link .desc,
+.cleva_module_configuration_guide_intro .wh_child_links .link .desc,
+.cleva_module_functional_guide_intro .wh_child_links .link .desc,
+.cleva_legal_guides_intro .wh_child_links .desc{
+    display: none;
+}
+
+
+.cleva_legal_guides_intro .wh_child_links .ulchildlink{
+    padding-bottom: 5px;
+}
+
+
+/*.wh_child_links .link .desc {
+    margin-top: 1em;
+    text-align: center;
+    color: var(--primary-extra-light-contrast);
+    font-size: 14px;
+    font-weight: 500;
+}*/
+
+.cleva_release_documentation_intro .wh_child_links .link a,
+.cleva_module_group_intro .wh_child_links .link a,
+.cleva_module_intro .wh_child_links .link a,
+.cleva_release_intro .wh_child_links .link a,
+.cleva_catalogue_intro .wh_child_links .link a,
+.cleva_business_documents_intro .wh_child_links .link a,
+.cleva_legal_guide_intro .wh_child_links .link a,
+.cleva_configuration_guide_intro .wh_child_links .link a,
+.cleva_functional_guide_intro .wh_child_links .link a,
+.cleva_release_intro_flip .wh_child_links .link a{
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: none;
+    text-align: center;
+    color: var(--accent-color) !important;
+    font-size: 16px;
+}
+
+/*.wh_child_links .link a {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: none;
+    text-align: center;
+    color: var(--primary-color) !important;
+    font-size: 16px;
+}*/
+
+
+/*.cleva_release_documentation_intro .wh_child_links .ulchildlink,
+.cleva_module_group_intro .wh_child_links .ulchildlink,
+.cleva_module_intro .wh_child_links .ulchildlink,
+.cleva_release_intro .wh_child_links .ulchildlink,
+.cleva_catalogue_intro .wh_child_links .ulchildlink,
+.cleva_business_documents_intro .wh_child_links .ulchildlink,
+.cleva_legal_guide_intro .wh_child_links .ulchildlink,
+.cleva_configuration_guide_intro .wh_child_links .ulchildlink,
+.cleva_functional_guide_intro .wh_child_links .ulchildlink,
+.cleva_feature_list .wh_child_links .ulchildlink,
+.cleva_feature_description .wh_child_links .ulchildlink,
+.cleva_feature_configuration .wh_child_links .ulchildlink{
+  cursor: pointer;
+}*/
+
+.wh_child_links .ulchildlink{
+  cursor: pointer;
+}
+
+
+.wh_related_links,
+.wh_child_links,
+.wh_topic_content .related-links{
+	border-top: 1px solid #ccc;
+/*    padding-top: 7px;*/
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.cleva_business_kpi .wh_related_links, .wh_child_links, .wh_topic_content .related-links{
+    border-top:none;
+}
+
+/*remover links filhos na página do kpi catalogue*/
+.cleva_business_kpi .wh_child_links .ulchildlink{
+    display: none;
+}
+
+/*»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»*/
+/*Module Functional guide*/
+
+
+.cleva_module_functional_guide_intro .wh_topic_content.body{
+    margin-bottom: 25px;
+}
+
+.cleva_module_functional_guide_intro  .wh_related_links{
+    display: none;
+}
+
+/*»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»*/
+/*DRAFT functional doc*/
+
+.cleva_doctype_functional_draft .wh_topic_content.body::before,
+.cleva_doctype_configuration_draft .wh_topic_content.body::before{
+    content: "DRAFT";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 6vw;
+    color: rgb(255 112 112 / 30%);
+    z-index: 99999;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+
+
+
+

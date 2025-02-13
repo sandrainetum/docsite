@@ -1,0 +1,1 @@
+oxy_webhelp_navlinks = {"Toc136939308-d43829e1707":{"topics":[{"title":"Confluent utils","href":"modules\/cleva_analytics\/7.11\/document\/converted_7.10\/introduction.html#Toc82171326","attributes":{"data-id":"Toc82171326"},"menu":{"hasChildren":false},"tocID":"Toc82171326-d43829e1722","topics":[]}]}};

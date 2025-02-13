@@ -1,0 +1,1 @@
+oxy_webhelp_navlinks = {"homepage-d43829e35211":{"topics":[{"title":"Task manager - General features: Homepage","href":"modules\/cleva_workflow\/feature\/code_36993_1_en\/code_36993_1_functional.html","attributes":{"data-id":"code_36993_1_functional"},"menu":{"hasChildren":false},"tocID":"code_36993_1_functional-d43829e35226","topics":[]}]}};

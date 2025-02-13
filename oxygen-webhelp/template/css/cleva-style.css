@@ -1,0 +1,1435 @@
+/*
+ * ==================================================
+ * Cleva style for oXygen generated WebHelp and pdf.
+ * ==================================================
+ */
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Cleva customization for pdf
+ *  
+ */
+
+@page{
+    size: A4;
+    margin: 2cm;
+}
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Cleva customization for print
+ *  
+ */
+
+/*@media print{
+    .cleva_feature_info{
+        color: green;
+    }
+}*/
+
+
+/*
+ * ------------------------------------------------------------------
+ * 
+ * 
+ *  
+ * Fonts.
+ *  
+ */
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700,300");
+
+/*@import url("https://fonts.googleapis.com/css?family=Poppins:400,700,300,500,600");*/
+
+html, body {
+    min-width:100%;
+}
+
+
+:root {
+    --primary-color: #596FB3;
+    --primary-light: #d9ddfc;
+    --secondary-color: #232d4b;
+    --accent-color: #19AA9B;
+    --bloc-color: #F2F4F9;
+    --cleva-bloc-color: #fbfbfb;
+    --primary-extra-light: #f1f2fe;
+    --cleva-font1: Roboto, sans-serif;
+    --text-color: #000;  
+    --table-odd: #FFFFFF;
+    --table-even: #EDEDED;
+}
+
+
+    /*
+     * ------------------------------------------------------------------
+     *
+     * Body
+     *
+     */
+
+body{
+    font-family: var(--cleva-font1);
+}
+
+
+.figcap {
+    font-weight: bold;
+}
+
+.topictitle1{
+    font-weight: 700;
+    font-size: 2.2em;
+}
+
+.topictitle2{
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+.topictitle3{
+    font-size: 1.6em;
+    color: var(--accent-color);
+}
+
+.topictitle4{
+    font-size: 1.3em;
+    color: var(--accent-color);
+}
+
+
+h2.\-.topic\/title.title.sectiontitle{
+    font-size: 1.8em;
+}
+
+
+.cleva_business_kpi_doc h2.\-.topic\/title.title.sectiontitle{
+    font-size: 1.17em;
+}
+
+
+
+
+h3.\-.topic\/title.title.sectiontitle{
+    margin-bottom: 1em;
+    font-size: 1.4em;
+}
+
+
+p{
+    margin-bottom: 0;
+}
+
+
+    /*
+     * ------------------------------------------------------------------
+     *
+     * Table
+     *
+     */
+
+/* Ensure that the demo table scrolls */
+    th, td { white-space: nowrap; }
+    div.dataTables_wrapper {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+/*Primeira coluna fixa DataTable zebra style*/
+table.dataTable tbody tr:nth-child(odd) td.\-.topic\/entry.entry.colsep-1.rowsep-1.sorting_1.dtfc-fixed-start.dtfc-fixed-left{
+    box-shadow: inset 0 0 0 9999px rgb(230 235 247);
+}
+
+table.dataTable tbody tr:nth-child(even) td.\-.topic\/entry.entry.colsep-1.rowsep-1.sorting_1.dtfc-fixed-start.dtfc-fixed-left{
+    box-shadow: inset 0 0 0 9999px rgb(212 220 241);
+}
+
+table.dataTable tbody tr:nth-child(odd) td.topic\/entry.entry.colsep-1.rowsep-0.sorting_1.dtfc-fixed-start.dtfc-fixed-left {
+    box-shadow: inset 0 0 0 9999px rgb(230 235 247);
+}
+     
+table.dataTable tbody tr:nth-child(even) td.topic\/entry.entry.colsep-1.rowsep-0.sorting_1.dtfc-fixed-start.dtfc-fixed-left {
+    box-shadow: inset 0 0 0 9999px rgb(212 220 241);
+}     
+     
+     
+ 
+.dt-search{
+    margin-bottom: 1rem;
+} 
+ 
+ 
+     
+/*div.dt-container select.dt-input{
+     margin-right: 4px;
+ } 
+  */
+  
+.dt-length > label{
+    margin-left: 4px;
+}
+  
+  
+     
+/*div.dt-container div.dt-layout-cell{
+    vertical-align: -webkit-baseline-middle !important;
+}*/     
+     
+
+*[class~='topic/table'] th {
+/*  background-color: var(--primary-color);*/
+  background-color: var(--secondary-color);
+  color: white;
+/*  text-align: left;*/
+  position: sticky;
+  top: 0;
+}
+
+caption{
+    padding-top: 0.75rem;
+}
+
+caption:empty{
+    display: none;
+}
+
+
+/**[class~='topic/table'] td {
+  text-align:left; 
+}*/
+
+
+/*table-style-classic-grid*/
+*[class~='topic/entry'],
+*[class~='topic/stentry'] {
+  border: none;
+}
+.stentry:last-child {
+  border-right: none;
+}
+.strow:last-child .stentry {
+  border-bottom: none;
+}
+
+
+/*table-colors-striped-reverse*/
+*[class~='topic/strow']:nth-child(odd),
+*[class~='topic/tbody'] *[class~='topic/row']:nth-child(odd) {
+/*  background-color: var(--bloc-color);*/
+    background-color: var(--table-odd);
+}     
+     
+*[class~='topic/strow']:nth-child(even),
+*[class~='topic/tbody'] *[class~='topic/row']:nth-child(even) {
+  background-color: var(--table-even);
+}      
+
+
+table{
+    margin-top: 1rem;    
+    
+}
+
+/*wrap em todas as tabelas*/
+.table td, .table th{
+    text-wrap: wrap;
+    
+}
+
+td>p.\-.topic\/p.p{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+     
+
+.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th, .table>thead>tr>td, .table>thead>tr>th{
+/*    border-color: #e3e6ed;*/
+/*    border-color: var(--secondary);*/
+    border-width: 1px;
+    vertical-align: middle !important;
+    
+}
+
+.rowsep-1{
+    border-bottom: none;
+}
+
+
+.frame-all{
+/*    border: none;*/
+    border: 1px solid var(--table-even);
+}
+
+/*table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting_asc_disabled, table.dataTable thead>tr>th.sorting_desc_disabled, table.dataTable thead>tr>td.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting_asc_disabled, table.dataTable thead>tr>td.sorting_desc_disabled{
+    line-height: 14px;
+}*/
+
+caption.tablecap[data-caption-side=bottom]{
+    font-weight: bold;
+}
+
+table.dataTable {
+    line-height: 12px !important;
+    font-size: 13px !important;
+    border: 1px solid var(--table-even);
+}
+
+/*.sectiontitle:not(.tasklabel), .topic:not([role~=article])>.title, .wh_term_group>.wh_first_letter, table>caption{
+    padding-top: .7em;
+}*/
+
+/*Estilo Business KPI catalogue*/
+
+.thvertical{
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    padding: 20px 5px;
+    width: fit-content;
+    text-align: left;
+}
+
+
+.clevatable_business_kpi_catalogue thead th{
+/*    border: 2px solid #909bbe !important;*/
+    border: 2px solid #3f475b !important;
+    text-wrap: balance;
+    padding: 0.3rem
+}
+
+.clevatable_business_kpi_catalogue td{
+    border: 0.5px solid #e3e6ed;
+    white-space: normal;
+    font-size: 13px;
+    padding: 0.4rem;
+    text-wrap: nowrap;
+}
+
+
+.cleva_business_kpi_doc th{
+    background: var(--primary-color);
+    
+}
+
+
+.cleva_business_kpi_doc *[class~='topic/strow']:nth-child(odd), 
+.cleva_business_kpi_doc *[class~='topic/tbody'] *[class~='topic/row']:nth-child(odd){
+      background-color: var(--bloc-color) !important;
+}
+
+.cleva_business_kpi_doc *[class~='topic/strow']:nth-child(even), 
+.cleva_business_kpi_doc *[class~='topic/tbody'] *[class~='topic/row']:nth-child(even){
+      background-color: #e5e9f4 !important;
+}  
+
+.cleva_business_kpi_doc  tbody.\-.topic\/tbody.tbody{
+    border: 1px solid var(--primary-light);
+}
+
+
+/*******************/
+
+/*.clevatable_glossary tr td:nth-child(2){
+    text-wrap: wrap;
+}
+
+
+.clevatable_wrap, .clevatable_wrap td, .clevatable_wrap th{
+    white-space: normal;
+}*/
+
+/*remover "espaço" após colunas dt responsive*/
+
+colgroup:nth-of-type(2) col{
+    display: none;
+}
+
+
+/*Estilo dt resp Business KPI table*/
+
+.clevatable_dtresp_modal_kpi tr td:nth-child(1){
+    text-wrap: nowrap;
+}
+
+
+/*Estilo dt resp child row PLWC e PLCC*/
+.clevatable_dtresp_child_plwc_plcc td{
+/*    text-wrap: nowrap;*/
+    border-top: none;
+    border-bottom: 1px solid #dee2e6;
+}
+
+
+
+.clevatable_dtresp_child_plwc_plcc table.dataTable > tbody > tr{
+    background: white !important;
+}
+
+
+
+/*Estilo janela modal PLWC*/
+
+/*div.dtr-modal div.dtr-modal-content .table td{
+    border: none;
+}
+
+tr:has(td.modal-column-title){
+    border-top: 1px solid #dee2e6;
+}
+
+.version-availability{
+    border-top: 1px solid #dee2e6;
+}
+
+tr:has(td.cleva-modal-field-child):last-of-type{
+    border-bottom: 1px solid #dee2e6;
+}*/
+
+
+.clevatable_dtresp_modal_plwc tr td:nth-child(1){
+    text-wrap: nowrap;
+}
+
+td.cleva-modal-field-child{
+/*    display: inline-block;
+    margin-left: 10%;*/
+    padding-left: 18px !important;
+    text-wrap: nowrap !important;
+/*    color: #6e6e6e;*/
+}
+
+td.cleva-modal-field-child:before{
+/*    content: "";
+    display: inline-block;
+    background: #6e6e6e;
+    background: #232d4b;
+    width: 10px;
+    height: 7px;
+    margin-right: 5px;
+    border-radius: 0 5px 5px 0;*/
+    content: " ";
+    border-right: 3.5px solid var(--accent-color);
+    border-radius: 1px;
+    margin-right: 6px;
+    
+}
+
+tr:has(td.cleva-modal-field-child) td{
+    border-top: none;
+    border-bottom: 1px solid #dee2e6;
+}
+
+
+
+/*não expandir datables ao fechar toc direito*/
+/*.table-container{
+    max-width: fit-content;
+}*/
+
+
+/*APILM catalogue*/
+.clevatable_dtresp_modal_apilm tr td:nth-child(1){
+    text-wrap: nowrap;
+}
+
+/*td.cleva-modal-field{
+    padding-left: 20px !important;
+}*/
+
+
+td.cleva-modal-field:before{
+    content: " ";
+    border-right: 3.5px solid var(--accent-color);
+    border-radius: 1px;
+    margin-right: 6px;
+}
+
+
+
+
+    /*
+     * ------------------------------------------------------------------
+     *
+     * Fight with bootstrap
+     *
+     */
+.navbar-brand {
+    height: auto;
+}
+
+.navbar {
+    background-color: #ffffff;
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+}
+.wh_header{
+    background: var(--secondary-color);
+    color: #ffffff;
+    padding: 0;
+}
+a,
+a:hover,
+a:visited{
+/*    color: #337ab7;*/
+    color: var(--accent-color);
+}
+a:hover{
+    text-decoration: none;
+}
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Publication titles
+ *  
+ */
+ .wh_publication_title > a{
+     color:#fff;
+/*     font-size: 1.4em;*/
+     font-size: 12px;
+     font-weight: bolder;
+     text-transform: uppercase;
+}
+
+/*.wh_main_page .wh_publication_title > a{
+    display: none;
+}*/
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Menu
+ *  
+ */
+.wh_top_menu {
+    text-transform: uppercase;
+    margin: .4em 0;
+/*    font-size: 0.9em;*/
+    font-size: 12px;
+}
+.wh_top_menu a{
+    color: #fff;
+    line-height: 2em;
+}
+
+.wh_top_menu a:hover{
+    color: var(--accent-color);
+/*    line-height: 2em;*/
+}
+
+
+/* The submenus */
+.wh_top_menu ul ul {
+    text-transform: none;
+/*    background-color: #4E4D61;*/
+}
+.wh_top_menu ul li:hover,
+.wh_top_menu.activated-on-click ul li.active {
+/*    background-color: #4E4D61;*/
+    background-color: var(--secondary-color);
+}
+.wh_top_menu ul ul li a:hover {
+/*    background: #FFFFFF;*/
+/*    color: #02001D;*/
+    color: var(--accent-color);
+}
+.wh_top_menu ul ul li {
+    border-top-color: #02001D;
+    width: 270px;
+/*    text-transform: capitalize;*/
+    background: var(--secondary-color);
+}
+.wh_top_menu ul ul li.has-children:after{
+}
+
+
+.wh_top_menu ul li a{
+    line-height: 2em;
+}
+
+
+/*AK*/
+
+/*aumentar espaço breadcrumbs*/
+.wh_tools{
+    padding-top: 15px;
+    padding-bottom: 12px;
+}
+
+/*aumentar área do conteúdo*/
+.container-fluid{
+    max-width: 1800px;
+}
+
+/*mostrar numeração das figuras*/
+span.fig--title-label-number{
+    display: initial;
+}
+
+
+
+.wh_header_flex_container{
+/*    height: 45px;*/
+    height: 55px;
+}
+
+
+.wh_topic_toc > ul > li > a{
+    font-weight: bold
+}
+
+.current_node{
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+/*p.\-.topic\/p.p.cleva_kpi_field{
+    background: white;
+    border: 0.5px solid black;
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 3px;
+    margin-top: 0;
+    border-left: 5px solid var(--primary-color);
+}*/
+
+
+.cleva_business_kpi_doc .sectiontitle{
+    margin-top: 0.5em;
+}
+
+.cleva_business_kpi_doc .section{
+    background: var(--bloc-color);
+    /*padding: 10px;*/
+    padding: 4px 15px 12px;
+    border-radius: 10px;
+}
+
+
+.cleva_business_kpi_doc section:has(.cleva_feature_info){
+    background: none;
+    border-top: 1px solid var(--table-even);
+    border-radius: 0;
+}
+
+.codeblock{
+    white-space: break-spaces;
+}
+
+.cleva_business_kpi_doc .wh_expand_btn.expanded:before{
+    content: "";
+    display: inline-block;
+    background: #596fb3;
+    width: 13px;
+    height: 10px;
+    margin-left: -16px;
+    border-radius: 0 5px 5px 0;
+}
+
+
+/*.cleva_business_kpi_doc b, strong{
+    color: #666;
+}*/
+
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Link to the index.
+ * 
+ */
+ .wh_indexterms_link a span{
+    display:none;
+}
+.wh_indexterms_link a:before{
+    color:#fff;
+}
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Breadcrumb
+ *  
+ */
+.wh_breadcrumb ol {
+/*    color: #878787;*/
+    color: var(--accent-color);
+    font-size: 13px;
+}
+.wh_breadcrumb ol a {
+    color:inherit;
+}
+
+.wh_breadcrumb ol a:hover {
+    color:inherit;
+    text-decoration: underline;
+}
+
+.wh_breadcrumb ol .active {
+/*    color: #5185cb;*/
+/*    color: var(--accent-color);*/
+    color: #878787;
+}
+
+
+.wh_breadcrumb ol .active a:hover{
+    text-decoration: none;
+}
+
+
+
+/*wh-breadcrumb-separator-arrow*/
+.wh_breadcrumb li:not(:last-of-type):after {
+  content: ' > ';
+}
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Tools and navigation
+ * 
+ */
+.wh_tools{
+    background-color: white;
+    margin: 1em 0 1em;
+}
+
+.wh_print_link,
+.wh_navigation_links,
+.wh_navigation_links .navnext,
+.wh_navigation_links .navprev{
+}
+
+.wh_print_link button,
+.webhelp_expand_collapse_sections,
+.wh_hide_highlight,
+.oxy-icon-pdf-link,
+.wh_navigation_links a,
+.wh_navigation_links a:hover,
+.wh_navigation_links a:active,
+.wh_navigation_links a:visited,
+.wh_print_link a:before,
+.wh_navigation_links a:before,
+.wh_navigation_links a:hover:before,
+.wh_navigation_links a:active:before,
+.wh_navigation_links a:visited:before{
+    /*color: #347bb7;*/
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Tiles
+ * 
+ */
+ 
+ .wh_tiles{
+     justify-content: center;
+ }
+ 
+ 
+ /*comentado para não afetar o flip tiles
+.wh_tile {
+/\*    background-color: white;*\/
+    background-color: var(--secondary-color);
+    font-weight: 300;
+	border-radius: 3px;
+	box-shadow: 0 20px 30px 0 rgba(63, 18, 173, 0.05), 0 0 10px 0 rgba(0, 0, 0, .05);
+	/\*justify-content: space-evenly;*\/
+	justify-content: center;
+	cursor: pointer;
+	transition: transform .3s; /\* Animation *\/
+	
+	margin: 1.5em;
+	width: 25%;
+}*/
+
+/*comentado para não afetar o flip tiles
+.wh_tile:hover {
+  transform: scale(1.05); 
+}*/
+
+/*.wh_tile {
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s; /\* Animation *\/
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}*/
+
+.wh_tile_shortdesc{
+/*    margin-top:1em;*/
+    text-align: center;
+    color: white;
+/*    color: #0D1A2B;*/
+    font-size: 1.35em;
+    padding: 5px;
+}
+.wh_tile_text:after{
+    background: linear-gradient(to bottom, rgba(239, 239, 239, 0), rgba(239, 239, 239, 1) 75%);
+}
+.wh_tile_title{
+    font-size:1.7em;
+    text-align: center;
+    text-decoration: none;
+	font-weight: bold;
+}
+.wh_tile_title a{
+/*    color: #02001d;*/
+    color: white;
+    line-height:1.3em
+}
+@media only screen and (max-width: 767px) {
+    .wh_tile > div {
+        height: auto;
+    }
+}
+
+/* 
+You can style some of the tiles in a special way. 
+Example:
+.wh_tiles *[data-id='release_documentation']{
+    background-color:gray;
+}
+*/
+
+
+/*TILES FLIP*/
+
+/* Style the flip container */
+.flip-container {
+    perspective: 1000px; /* This creates a 3D space for the flip effect */
+    width: 100%; /* Adjust as necessary */
+    height: 100%; /* Adjust as necessary */
+}
+
+/* Style the card */
+.flip-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade effect for back */
+}
+
+/* Front side of the card */
+.flip-card-front, .flip-card-back {
+    backface-visibility: hidden; /* Ensure the other side doesn't show unexpectedly */
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    vertical-align: middle; 
+}
+
+/* Front side content */
+.flip-card-front {
+    background: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    /*box-shadow: 0 20px 30px 0 #e9ecef, 0 0 10px 0 rgba(0, 0, 0, .05);*/
+    box-shadow: 0 12px 15px 0 #cbcdd2, 0 0 10px 0 rgb(0 0 0 / 5%);
+    border-radius: 6px;
+    z-index: 2; /* Keep the front above initially */
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-out */
+    pointer-events: auto; /* Allow interactions */
+}
+
+/* Back side content */
+.flip-card-back {
+    background: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    /*box-shadow: 0 20px 30px 0 #e9ecef, 0 0 10px 0 rgba(0, 0, 0, .05);*/
+    box-shadow: 0 12px 15px 0 #cbcdd2, 0 0 10px 0 rgb(0 0 0 / 5%);
+    border-radius: 6px;
+    z-index: 1; /* Keep the back below initially */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-in */
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+/* Hover effect to trigger the fade-in of the back */
+.flip-container:hover .flip-card-front {
+    opacity: 0; /* Fade out the front smoothly */
+    pointer-events: none; /* Disable interactions once faded out */
+}
+
+.flip-container:hover .flip-card-back {
+    opacity: 1; /* Fade in the back smoothly */
+    pointer-events: auto; /* Enable interactions once fully visible */
+}
+
+/* Centralize the title vertically */
+.wh_tile_text {
+    height: initial;
+}
+
+/* Remove padding from the tile */
+.wh_tile {
+    padding: 0;
+}
+
+.wh_tile {
+    font-weight: 300;
+    cursor: pointer;
+    margin: 1.5em;
+    width: 25%;
+}
+
+
+
+/*TILES FLIP CHILD*/
+
+/* Style the flip container */
+.flip-container-child {
+    perspective: 1000px; /* This creates a 3D space for the flip effect */
+    width: 100%; /* Adjust as necessary */
+    height: 100%; /* Adjust as necessary */
+}
+
+/* Style the card */
+.flip-card-child {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade effect for back */
+}
+
+/* Front and back sides */
+.flip-card-front-child, .flip-card-back-child {
+    backface-visibility: hidden; /* Ensure only one side is visible */
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    vertical-align: middle; 
+    transition: opacity 0.5s ease-in-out; /* Smooth fade transitions */
+}
+
+/* Front side */
+.flip-card-front-child {
+    background: var(--cleva-bloc-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium), 0 .3px .9px 0 var(--box-shadow-light);
+    border-radius: 5px;
+    opacity: 1; /* Initially fully visible */
+    pointer-events: auto; /* Allow interaction */
+}
+
+/* Back side */
+.flip-card-back-child {
+    background: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 1.6px 3.6px 0 var(--box-shadow-medium), 0 .3px .9px 0 var(--box-shadow-light);
+    border-radius: 5px;
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Disable interaction */
+}
+
+/* Hover effect */
+.flip-container-child:hover .flip-card-front-child {
+    opacity: 0; /* Fade out the front */
+    pointer-events: none; /* Disable interaction */
+}
+
+.flip-container-child:hover .flip-card-back-child {
+    opacity: 1; /* Fade in the back */
+    pointer-events: auto; /* Enable interaction */
+}
+
+.flip-card-back-child > .\-.topic\/desc.desc{
+    color: white;
+    
+}
+/*
+.flip-card-back-child > .\-.topic\/desc.desc a{
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    
+}*/
+
+.flip-card-front-child strong a{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Search area
+ * 
+ */
+/*.wh_search_input{
+    display:block;
+    margin:0;
+    position:relative;
+    background: #03707c;
+    padding: 20px 0 20px;
+/\*    background: #e9ecef;*\/
+    background: white;
+    border-bottom: 1px solid #dee2e6;
+    height: 85px;
+}
+
+/\*.wh_welcome:not(:empty){
+    font-size: 4em;
+    margin: 0 auto;
+    font-family: 'Roboto Thin', sans-serif;
+    padding: 0 0 1.5em 0;
+    text-shadow: none;
+    color: #040a39;
+}*\/
+*/
+
+.wh_welcome:not(:empty){
+  /*font-size: 3em;*/
+  font-size: 2.8em;
+  font-family: var(--cleva-font);
+  font-weight: 700;
+/*  font-weight: 500;*/
+  color: #111724;
+  text-shadow: none;
+/*  width: initial;
+  margin: 0 0;
+  padding: 0 0;
+  position: relative;
+  bottom: 40px;*/
+}
+
+.wh_main_page .wh_search_input{
+/*    padding: 115px 0;*/
+    background: var(--cleva-bloc-color);
+    /*background: #EFEFEF;*/
+    /*padding-top: 100px;*/
+    padding-top: 20px;
+    /*padding-bottom: 80px;*/
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+
+}
+.wh_main_page .wh_search_textfield{
+/*    border: none;*/
+/*    border-radius: 50px;*/
+    padding: 6px 0 6px 18px;
+    position: relative;
+    height: 40px;
+/*    background: #06032E;*/
+    color: black;
+    font-size: 16px;
+/*    font-weight: 800;
+    letter-spacing: .1rem;*/
+}
+.wh_main_page .wh_search_button{
+    border: none;   /*solid 1px #CCC*/
+/*    border-radius: 50%;*/
+    padding: 0.6em 1em;
+    color: white;
+    background-color: var( --accent-color);
+    height: 40px;
+    box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+}
+
+/* Search autocomplete icons */
+.search-autocomplete-proposal-type-history a,
+.search-autocomplete-proposal-type-history a:hover,
+.search-autocomplete-proposal-type-history a:visited,
+.search-autocomplete-proposal-type-history a:active{
+    text-decoration: none;
+    color:inherit;
+    font-size: 0.8em;
+}
+
+.ui-state-active .search-autocomplete-proposal-type-history a,
+.ui-state-active .search-autocomplete-proposal-type-history a:hover,
+.ui-state-active .search-autocomplete-proposal-type-history a:visited,
+.ui-state-active .search-autocomplete-proposal-type-history a:active{
+    color: #fff;
+}
+
+.ui-state-active{
+    background-color: #999; 
+}
+
+/* Active search page */
+#wh-search-pagination > ul > li.active > a {
+    background-color: #346ec5;
+}
+
+/*@media only screen and (max-width: 999px) {*/
+    /*.wh_search_input:after{*/
+        /*display:none;*/
+    /*}*/
+
+/*}*/
+@media only screen and (max-width: 767px) {
+    .wh_main_page .wh_search_input,
+    .wh_search_input {
+        padding: 3em 0;
+    }
+}
+
+
+/*AK*/
+
+#wh_search_input navbar-form wh_topic_page_search search 
+#searchForm>div{
+        width: 40%;
+}
+
+
+/*#searchForm>div{
+    width: 20%;
+    float: right;
+    margin-right: 185px;
+
+}*/
+
+.wh_top_menu:not(.activated-on-click) ul ul{
+    transition: none;
+}
+
+.wh_top_menu:not(.activated-on-click) ul li:hover>ul{
+    transition: none;
+}
+
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Publication TOC
+ * 
+ */
+.wh_publication_toc{
+    border-radius: 3px;
+    padding: 1.5em 2em;
+    background-color: #f8f8f8
+}
+.wh_publication_toc .active > .topicref a {
+/*    color: #5185cb;*/
+    color: var(--accent-color);
+    font-weight: bold;
+}
+.wh_publication_toc div, .wh_publication_toc a, .wh_publication_toc a:visited, .wh_publication_toc a:hover {
+    color: #878787;
+}
+.wh_publication_toc a:hover {
+    text-decoration: underline;
+}
+
+.wh_publication_toc  ul  li{
+    margin-top: .7em;
+}
+
+@media only screen and (max-width: 767px) {
+    .wh_publication_toc {
+        border-radius: 0;
+        padding: 1em 0.5em;
+        margin-top: 10px;
+        border: 1px solid #e0e0e0;
+    }
+
+/* - retirar a barra e espaçamento dos links filho
+
+    .wh_related_links,
+    .wh_child_links,
+    .wh_topic_content .related-links{
+        border: 1px solid #e0e0e0;
+    }
+*/
+
+
+/* Publication TOC tooltip */
+.wh_breadcrumb .topicref .wh-tooltip,
+.wh-toc-tooltip {
+    background-color: #5E6573;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.wh_breadcrumb .topicref .wh-tooltip a,
+.wh-toc-tooltip a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Tooltip arrow. */
+
+[data-tooltip-position="left"] .topicref .wh-tooltip::before,
+[data-tooltip-position="left"] .wh-toc-tooltip::before {
+    border-left-color: #5E6573;
+}
+
+[data-tooltip-position="right"] .topicref .wh-tooltip::before,
+[data-tooltip-position="right"] .wh-toc-tooltip::before {
+    border-right-color: #5E6573;
+}
+
+[data-tooltip-position="bottom"] .topicref .wh-tooltip::before,
+[data-tooltip-position="bottom"] .wh-toc-tooltip::before {
+    border-bottom-color: #5E6573;
+}
+
+[data-tooltip-position="top"] .topicref .wh-tooltip::before,
+[data-tooltip-position="top"] .wh-toc-tooltip::before {
+    border-top-color: #5E6573;
+}
+
+/*
+ * ------------------------------------------------------------------
+ *
+ * Footer
+ * 
+ */
+
+/*.wh_footer {
+    text-align: center;
+    padding: 3em;
+    background-color: #F2F4F9;
+    color: #cccccc;
+}
+.wh_footer a{
+    color: #CCE2F1;
+}
+
+
+/\*wh-footer-colors-black*\/
+.footer-container,
+.footer-container a {
+  color: #000;
+}
+*/
+
+/*
+ * ------------------------------------------------------------------
+ *
+ * Geral (AK)
+ * 
+ */
+/*.cleva_module_configuration_guide_intro .desc{
+    display: none;
+}*/
+
+
+.cleva_module_configuration_guide_intro .wh_child_links .olchildlinks, .wh_child_links .ullinks, .wh_child_links li{
+    display: none;    
+}
+
+
+.cleva_module_configuration_guide_intro .wh_child_links{
+    border-top: 1px solid #ccc;
+    padding-top: 7px; 
+    margin-top: 0;
+}
+
+
+
+
+
+
+
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Topic content
+ * 
+ */
+.wh_topic_content,.wh_content_area {
+    color: #02001d;
+    line-height: 1.7em;
+    margin-bottom: 80px;
+}
+.wh_main_page .wh_content_area {
+    margin: 50px 0 !important;
+    
+}
+.wh_topic_content .title.topictitle1 {
+    font-size: 26px;
+    margin-bottom: 1em;
+    line-height: 1.1em;
+}
+
+
+.wh_topic_content body .topictitle1 {
+    font-size: 26px !important;
+    font-weight: 500;
+    color: red;
+}
+
+.topictitle3{
+    font-weight: 400;
+}
+
+.wh_related_links,
+.wh_topic_content .related-links{
+    padding: .5em 1.5em ;
+}
+
+.wh_child_links {
+    padding: 1.5em ;
+}
+
+.related-links strong{
+    font-weight: 500;
+}
+
+.related-links a,
+.related-links a:visited {
+    color: #5185cb;
+    padding-bottom: .3em;
+}
+
+.filepath {
+    color: #c7254e !important;
+}
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Search results.
+ * 
+ */
+.searchresult {
+    list-style: none;
+}
+
+.searchresult li a {
+    color:#346ec5;
+}
+.searchresult .shortdesclink {
+    margin: .3em .5em 0 0;
+}
+.wh_search_expression{
+    font-weight:bold;
+}
+
+/* Search relative path */
+.searchresult li .relativePath a {
+    color: #666666;
+}
+
+/*--------- Search results breadcrumb ----------*/
+.search-breadcrumb li a {
+    background: #ECF2F9;
+}
+.search-breadcrumb li .title:before,
+.search-breadcrumb li .title:after {
+    border-color: #ECF2F9;
+}
+.search-breadcrumb li .title:before {
+    border-left-color: transparent;
+}
+.search-breadcrumb li .title:after {
+    border-color: transparent;
+    border-left-color: #ECF2F9;
+}
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Index terms.
+ * 
+ */
+.wh_index_terms span.wh_first_letter {
+    color: #346ec5;
+}
+.wh_index_terms #indexList{
+    padding:0;
+}
+
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Tree TOC for the main page.
+ * 
+ */
+.wh_main_page_toc{
+}
+
+
+.wh_main_page_toc .expanded, .wh_main_page_toc .wh_main_page_toc_accordion_header:hover, .wh_main_page_toc>.wh_main_page_toc_entry:hover, .wh_main_page_toc_accordion_entries{
+    background-color: #F2F8FF;
+}
+
+/**
+ *
+ * Styles used for RTL pages
+ *
+ */
+html[dir='rtl'] .wh_top_menu:not(.activated-on-click) ul li:hover > ul,
+html[dir='rtl'] .wh_top_menu.activated-on-click ul li.active > ul {
+    max-width: 270px;
+}
+
+}
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Image
+ * 
+ */
+.image {
+    border: 1px solid #adb5bd !important;
+}
+
+
+.wh_logo_and_publication_title img, svg{
+    width: 22px;
+    height: 22px;
+    max-height: 50px;
+}
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * "Main page" toc
+ * 
+ */
+.wh_main_page_toc a{
+    font-size: 1.4em;
+}
+
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * "Topic task" steps
+ * 
+ */
+
+li.\-.topic\/li.task\/step.li.step{
+    padding-bottom: 12px;
+}
+

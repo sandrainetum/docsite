@@ -1,0 +1,30 @@
+:root {
+    --primary-color: #596FB3;
+    --secondary-color: #232d4b;
+    --accent-color: #19AA9B;
+    --bloc-color: #F2F4F9;
+    --primary-extra-light: #f1f2fe;
+    --cleva-font: Roboto, sans-serif;
+    --text-color: #000;
+    --footer-color: #878787;
+}
+
+.wh_footer {
+    text-align: center;
+/*    padding: 1.5em;*/
+    background-color: #f8f8f8; /*#edecec*/
+    color: var(--footer-color);
+    height: 40px;
+}
+
+/*.wh_footer a{
+    color: var(--primary-color);
+}*/
+
+
+/*wh-footer-colors-black*/
+
+.footer-container a {
+  color: var(--accent-color);
+}
+

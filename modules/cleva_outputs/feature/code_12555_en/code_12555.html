@@ -1,0 +1,558 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" data-whc_version="26.0">
+    <head><link rel="shortcut icon" href="../../../../oxygen-webhelp\template\images\favicon.png"/><link rel="icon" href="../../../../oxygen-webhelp\template\images\favicon.png"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="concept"/><meta name="description" content="This feature provides a bundle of services to handle the output’s life cycle configuration and orchestration."/><meta name="DC.relation" content="../../../../site/release_documentation/module_intro-7.html"/><meta name="DC.relation" content="../../../../modules/cleva_outputs/7.11/system_requirements.html"/><meta name="DC.relation" content="../../../../site/release_documentation/module_intro-8.html"/><meta name="DC.relation" content="code_12555_functional.html"/><meta name="rights" content="© 2024 Cleva Solutions, S.A. "/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="code_12555"/><meta name="DC.language" content="en"/>        
+      <title>Services</title><!--  Generated with Oxygen version 26.0, build number 2023110923.  --><meta name="wh-path2root" content="../../../../"/><meta name="wh-toc-id" content=""/><meta name="wh-source-relpath" content="modules/cleva_outputs/feature/code_12555_en/code_12555.dita"/><meta name="wh-out-relpath" content="modules/cleva_outputs/feature/code_12555_en/code_12555.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/app/commons.css?buildId=2023110923"/>
+    <link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/app/topic.css?buildId=2023110923"/>
+
+    <script src="../../../../oxygen-webhelp/app/options/properties.js?buildId=20250107101839"></script>
+    <script src="../../../../oxygen-webhelp/app/localization/strings.js?buildId=2023110923"></script>
+    <script src="../../../../oxygen-webhelp/app/search/index/keywords.js?buildId=20250107101839"></script>
+    <script defer="defer" src="../../../../oxygen-webhelp/app/commons.js?buildId=2023110923"></script>
+    <script defer="defer" src="../../../../oxygen-webhelp/app/topic.js?buildId=2023110923"></script>
+<link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/cleva-style.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/cleva-footer.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/search-in-header.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/topic-with-tiles.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/data-table.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/cleva-style-notes.css?buildId=2023110923"/>
+        <!-- The DataTables library styles (for local use please uncomment the following lines) -->
+        <!--<link rel="stylesheet" type="text/css" href="${oxygen-webhelp-template-dir}/DataTables/datatables.min.css"/>-->
+        <script defer="true" src="../../../../oxygen-webhelp/template/DataTables/datatables.min.js"></script>
+        
+        
+        <!--<link rel="stylesheet" type="text/css"
+            href="http://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />-->
+        
+<!--        <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js" defer="true"/>
+        <script defer="true" src="https://cdn.datatables.net/fixedcolumns/5.0.1/js/dataTables.fixedColumns.js"/>
+        <script defer="true" src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"/>
+        <script defer="true" src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.colVis.min.js"/>-->
+        
+        
+        
+        <!-- DataTables initialization script -->
+        <script>
+    <!--            
+            window.addEventListener("DOMContentLoaded", (event) => {
+            $('.clevatable_dtresp_child_plwc_plcc').DataTable({
+                paging: false,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 320,
+                responsive: {
+                    details: {
+                        renderer: function (api, rowIdx, columns) {
+                            var data = $.map(columns, function (col, i) {
+                                return col.hidden ? 
+                                    '<tr>' +
+                                        '<td><strong>' + col.title + ':</strong></td> ' +  // Column title
+                                        '<td>' + col.data + '</td>' +                      // Corresponding data
+                                    '</tr>' : 
+                                    '';
+                            }).join('');
+        
+                            return data ? $('<table class="table"/>').append(data) : false;  // Append child rows to the table
+                        }
+                    }
+                },
+                columnDefs: [
+                    // Keep the first two columns always visible
+                    { responsivePriority: 1, targets: 0 },  // Widget/component key always visible
+                    { responsivePriority: 2, targets: 1 },  // Variable name always visible
+                    { responsivePriority: 3, targets: 2 },  // I/O always visible
+                    { responsivePriority: 4, targets: 3 },  // Type always visible
+                    { responsivePriority: 5, targets: 4 },  // Mandatory always visible
+        
+                    // Hide description and comment, accessible via child row
+                    { responsivePriority: 6, targets: [5, 6], className: 'none' }
+                ]
+            });
+        });
+
+    
+            window.addEventListener("DOMContentLoaded", (event) => {
+            $('.clevatable_dtresp_modal_plwc').DataTable({
+                paging: false,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 310,
+                responsive: {
+                    details: {
+                        display: $.fn.dataTable.Responsive.display.modal({  // modal call for DataTables
+                            header: function (row) {
+                                var data = row.data();
+                                return 'Details for Widget key: ' + data[0];  // Title for modal window
+                            }
+                        }),
+                    renderer: function (api, rowIdx, columns) {
+                        var data = $.map(columns, function (col, i) {
+                            var rowContent = '';
+    
+                            // Generate rows for hidden columns
+                            if (col.hidden) {
+                                // Add class if the column title starts with "Cleva"
+                                var titleClass = col.title.startsWith('Cleva') ? 'cleva-modal-field-child' : 'cleva-modal-field';
+                                rowContent += '<tr>' +
+                                    '<td class="' + titleClass + '"><strong>' + col.title + ':</strong></td>' +  // Column title with conditional class for "Cleva"
+                                    '<td>' + col.data + '</td>' +                      // Corresponding data
+                                '</tr>';
+                            }
+    
+                            // If the current column title is "Context", add the extra row after it
+                            if (col.title === 'Context') {
+                                rowContent += '<tr>' +  // Add a simple row here
+                                    '<td colspan="2" class="cleva-modal-field-group"><strong>Version availability</strong></td>' + // New row for Version availability
+                                '</tr>';
+                            }
+    
+                            return rowContent;
+                        }).join('');
+    
+                        return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns to modal
+                    }
+                }
+            },
+                columnDefs: [
+                    // Keep these 4 columns visible at all times
+                    { responsivePriority: 1, targets: 0 },  // Keep Widget Key visible
+                    { responsivePriority: 2, targets: 4 },  // Keep Name visible
+                    { responsivePriority: 5, targets: 2 },  // Keep Functional area visible
+                    { responsivePriority: 6, targets: 3 },  // Keep Business area visible
+                    { responsivePriority: 3, targets: 6 },  // Keep Status visible
+                    { responsivePriority: 4, targets: 1 },  // Keep Module visible
+
+        
+                    // Hide remaining columns (19 in total) but accessible via modal
+                    { responsivePriority: 7, targets: [5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], className: 'none' }
+                ]
+            });
+        });
+
+
+                    window.addEventListener("DOMContentLoaded", (event) => {
+                    $('.clevatable_dtresp_modal_plcc').DataTable({
+                        paging: false,
+                        scrollCollapse: true,
+                        scrollX: true,
+                        scrollY: 310,
+                        responsive: {
+                            details: {
+                                display: $.fn.dataTable.Responsive.display.modal({  // modal call for DataTables
+                                    header: function (row) {
+                                        var data = row.data();
+                                        return 'Details for Component key: ' + data[0];  // Title for modal window
+                                    }
+                                }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col, i) {
+                                    var rowContent = '';
+            
+                                    // Generate rows for hidden columns
+                                    if (col.hidden) {
+                                        // Add class if the column title starts with "Cleva"
+                                        var titleClass = col.title.startsWith('Cleva') ? 'cleva-modal-field-child' : 'cleva-modal-field';
+                                        rowContent += '<tr>' +
+                                            '<td class="' + titleClass + '"><strong>' + col.title + ':</strong></td>' +  // Column title with conditional class for "Cleva"
+                                            '<td>' + col.data + '</td>' +                      // Corresponding data
+                                        '</tr>';
+                                    }
+            
+                                    // If the current column title is "Exceptions", add the extra row after it
+                                    if (col.title === 'Exceptions') {
+                                        rowContent += '<tr>' +  // Add a simple row here
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Version availability</strong></td>' + // New row for Version availability
+                                        '</tr>';
+                                    }
+            
+                                    return rowContent;
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns to modal
+                            }
+                        }
+                    },
+                        columnDefs: [
+                            // Keep these 4 columns visible at all times
+                            { responsivePriority: 1, targets: 0 },  // Keep Component Key visible
+                            { responsivePriority: 2, targets: 1 },  // Keep Module visible
+                            { responsivePriority: 3, targets: 2 },  // Keep Functional area visible
+                            { responsivePriority: 4, targets: 3 },  // Keep Business area visible
+                            { responsivePriority: 5, targets: 4 },  // Keep Name visible
+                            { responsivePriority: 6, targets: 6 },  // Keep Status visible
+        
+                
+                            // Hide remaining columns (22 in total) but accessible via modal
+                            { responsivePriority: 7, targets: [5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], className: 'none' }
+                        ]
+                    });
+                });
+                  
+                
+                window.addEventListener("DOMContentLoaded", (event) => {
+                    $('.clevatable_dtresp_modal_apilm').DataTable({
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollX: true,
+                    scrollY: 310,
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.modal({
+                                header: function (row) {
+                                    var data = row.data();
+                                    return 'Details for API Logging message: ' + data[0];  // Customize header with first column's data
+                                }
+                            }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col) {
+                                    var rowContent = '';
+            
+                                    // Add "Message information" row before "Detail message" column
+                                    if (col.title === 'Detail message') {
+                                        rowContent += '<tr class="message-info">' +  
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Message information</strong></td>' +
+                                            '</tr>';
+                                    }
+            
+                                    // Add "Message context" row before "Context" column
+                                    if (col.title === 'Context') {
+                                        rowContent += '<tr class="message-context">' +  
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Message context</strong></td>' +
+                                            '</tr>';
+                                    }
+            
+                                    // Generate rows for hidden columns and apply 'cleva-modal-field-child' class to all except custom rows
+                                    if (col.hidden) {
+                                        rowContent += '<tr>' +
+                                            '<td class="cleva-modal-field-child"><strong>' + col.title + ':</strong></td>' +  // Always apply 'cleva-modal-field' class
+                                            '<td>' + col.data + '</td>' +  // Column data
+                                        '</tr>';
+                                    }
+            
+                                    return rowContent;
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns in modal
+                            }
+                        }
+                    },
+                    columnDefs: [
+                        { responsivePriority: 1, targets: 0},  // First column (Message code) always visible
+                        { responsivePriority: 2, targets: 1},  // Second column (Message) always visible
+                        { responsivePriority: 3, targets: 2, className: 'none'}, // Hide third column (Detail message), accessible via modal
+                        { responsivePriority: 4, targets: 3, className: 'none'}, // Hide fourth column (Additional data), accessible via modal
+                        { responsivePriority: 5, targets: 4, className: 'none'}, // Hide fifth column (Context), accessible via modal
+                        { responsivePriority: 6, targets: 5, className: 'none'}, // Hide sixth column (Process), accessible via modal
+                        { responsivePriority: 7, targets: 6, className: 'none'}, // Hide seventh column (Used on), accessible via modal
+                    ]
+                });
+            });
+
+              
+            window.addEventListener("DOMContentLoaded", (event) => {
+                    $('.clevatable_dtresp_modal_batch').DataTable({
+                        paging: false,
+                        scrollCollapse: true,
+                        scrollX: true,
+                        scrollY: 310,
+                        responsive: {
+                            details: {
+                                display: $.fn.dataTable.Responsive.display.modal({  // modal call for DataTables
+                                    header: function (row) {
+                                        var data = row.data();
+                                        return 'Details for batch: ' + data[0];  // Title for modal window
+                                    }
+                                }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col, i) {
+                                    var rowContent = '';
+            
+                                    // Generate rows for hidden columns
+                                    if (col.hidden) {
+                                        // Add class if the column title starts with "Cleva"
+                                        var titleClass = col.title.startsWith('Cleva') ? 'cleva-modal-field-child' : 'cleva-modal-field';
+                                        rowContent += '<tr>' +
+                                            '<td class="' + titleClass + '"><strong>' + col.title + ':</strong></td>' +  // Column title with conditional class for "Cleva"
+                                            '<td>' + col.data + '</td>' +                      // Corresponding data
+                                        '</tr>';
+                                    }
+            
+                                    // If the current column title is "Steps", add the extra row after it
+                                    if (col.title === 'Steps') {
+                                        rowContent += '<tr>' +  // Add a simple row here
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Version availability</strong></td>' + // New row for Version availability
+                                        '</tr>';
+                                    }
+            
+                                    return rowContent;
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns to modal
+                            }
+                        }
+                    },
+                        columnDefs: [
+                            // Keep these 4 columns visible at all times
+                            { responsivePriority: 1, targets: 0 },  // Keep Module visible
+                            { responsivePriority: 2, targets: 1 },  // Keep Name visible
+                            { responsivePriority: 3, targets: 4 },  // Keep Frequency visible
+        
+                
+                            // Hide remaining columns (22 in total) but accessible via modal
+                            { responsivePriority: 4, targets: [2, 3, 5, 6, 7, 8], className: 'none' }
+                        ]
+                    });
+                });  
+              
+              
+              
+              
+    
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $('.clevatable_dtresp_modal_kpi').DataTable({
+                    searching: false,            // Disable search functionality
+                    info: false,                 // Disable table info display (e.g., "Showing X of Y entries")
+                    paging: false,               // Disable pagination
+                    scrollCollapse: true,        // Collapse empty space when content is smaller
+                    scrollX: true,              // Enable horizontal scrolling
+                    scrollY: false,              // Disable vertical scrolling
+                    autoWidth: false,            // Prevent DataTables from auto-adjusting column widths
+                    ordering: false,
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.modal({   // Correct modal display
+                                header: function (row) {
+                                    var data = row.data();
+                                    return 'Details for KPI Instruction: ' + data[0];  // Customize header with first column's data
+                                }
+                            }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col) {
+                                    return col.hidden ?                           // Display only hidden columns in the modal
+                                        '<tr>' +
+                                            '<td><strong>' + col.title + ':</strong></td> ' +  // Column title
+                                            '<td>' + col.data + '</td>' +                      // Column data
+                                        '</tr>' : '';
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns in modal
+                            }
+                        }
+                    },
+                    columnDefs: [
+                        { responsivePriority: 1, targets: 0, width: "30%"},  // First column (Table name) always visible
+                        { responsivePriority: 2, targets: 1},  // Second column (Description) always visible
+                        { responsivePriority: 3, targets: 2, className: 'none'}, // Hide third column (Command), accessible via modal
+                    ]
+                });
+            });
+
+  
+    
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $('.clevatable_dtstandard, .cleva_table1').DataTable({
+                    fixedColumns: {
+                        start: 1
+                    },
+                    dom: 'Bfrtip', // This is necessary to position the buttons
+                    buttons: [
+                        'colvis' // Adds column visibility buttons
+                    ],
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollX: true,
+                    scrollY: 310,
+                    responsive: false
+                });
+            });
+            
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $('.clevatable_dtstandard_basic').DataTable({
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollX: true,
+                    scrollY: 310,
+                    responsive: false
+                });
+            });
+            
+    -->
+        </script>
+    <script defer="true" src="../../../../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script></head>
+
+    <body id="code_12555" class="wh_topic_page cleva_doctype_functional">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div xmlns:whc="http://www.oxygenxml.com/webhelp/components" class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="C:\cleva-docenv\repos\i2s-documentation\cleva_product_documentation/out/site/index.html" class=" wh_logo d-none d-sm-block "><img src="../../../../oxygen-webhelp\template\images/cleva-newicon.svg" alt="CLEVA LIFE V7 | DOCUMENTATION"/></a>
+                    <div class=" wh_publication_title "><a href="../../../../index.html"><span class="title">CLEVA <span class="ph">LIFE V7</span> | DOCUMENTATION</span></a></div>
+                    
+                </div>
+                
+                <button type="button" data-target="#wh_top_menu_and_indexterms_link" id="wh_menu_mobile_button" data-toggle="collapse" class="navbar-toggler collapsed wh_toggle_button" aria-expanded="false" aria-label="Toggle menu" aria-controls="wh_top_menu_and_indexterms_link">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                <nav class=" wh_top_menu " aria-label="Menu Container"><ul role="menubar" aria-label="Menu"><li role="menuitem"><span id="news_2024_en-d43829e25-mi" data-tocid="news_2024_en-d43829e25" data-state="leaf" class=" topicref " data-id="news_2024_en"><span class="title"><a href="../../../../site/news/news_2024_en.html">News 2024</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="release_documentation-d43829e44-mi" data-tocid="release_documentation-d43829e44" data-state="not-ready" class=" topicref " data-id="release_documentation"><span class="title"><a href="../../../../site/release_documentation/release_documentation_intro.html">Release documentation</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="module_guides-d43829e14159-mi" data-tocid="module_guides-d43829e14159" data-state="not-ready" class=" topicref " data-id="module_guides"><span class="title"><a href="../../../../site/module_guides/module_guides_intro.html">Module guides</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="catalogues-d43829e35552-mi" data-tocid="catalogues-d43829e35552" data-state="not-ready" class=" topicref " data-id="catalogues"><span class="title"><a href="../../../../catalogues/catalogues.html">Catalogues</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="business_documents-d43829e35725-mi" data-tocid="business_documents-d43829e35725" data-state="not-ready" class=" topicref " data-id="business_documents"><span class="title"><a href="../../../../business_documents/business_documents.html">Module overview</a></span></span></li></ul></nav>
+                
+                
+            </div>
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../../../../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div></div>
+    </div>
+</header>
+        
+        
+         
+        
+        
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                    
+                    <div class="col-12" id="wh_topic_body">
+                        
+                        
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic concept/concept topic concept" role="article" aria-labelledby="code_12555__code_12555_title">
+    <h1 class="- topic/title title topictitle1" id="code_12555__code_12555_title">Services</h1>
+    
+
+    <div class="- topic/body concept/conbody body conbody"><p class="- topic/shortdesc shortdesc">This feature provides a bundle of services to handle the
+        output’s life cycle configuration and orchestration.</p>
+        <div class="- topic/div div" id="code_12555__code_12555_info">
+            
+            
+            <p class="- topic/p p"><em class="+ topic/ph hi-d/i ph i">CODE-12555 | Cleva Outputs | 7.10 | All markets</em></p>
+        </div>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relinfo" xml:lang="en" lang="en"><strong>Related information</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="code_12555_functional.html" title="This feature provides a bundle of services to handle the output’s life cycle configuration and orchestration.">
+                Functional description</a></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div>
+<!--    <span>
+        Generated by <a class="oxyFooter" href="http://www.oxygenxml.com/xml_webhelp.html" target="_blank">
+            &lt;oXygen/&gt; XML WebHelp
+        </a> 
+    </span>-->
+    
+    <div class="copyright_info">
+        <span class="copyright_years">
+            ©2024
+        </span>
+        <span class="organization">
+            Cleva Solutions, S.A. 
+        </span>
+        <span> All rights reserved. | </span>
+        <a href="../../../../support/reuse/copyright.html">Copyright</a>
+        <span>| Last updated: </span>
+        2025-01-07.
+    </div>
+</div>
+  </div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        <script type="text/javascript">
+<!--    
+    const list = document.querySelectorAll(".wh_child_links .ulchildlink, .wh_child_links .wh_tile");
+    Array.prototype.forEach.call(list, function (tile) {
+        tile.addEventListener('click', event => {
+        tile.querySelector('a').click();
+    });
+    });
+    
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all description elements
+        document.querySelectorAll(".flip-card-back-child .desc").forEach(desc => {
+            const maxLength = 210; // Set the maximum character length
+            const fullText = desc.textContent.trim(); // Get the full description
+
+            // Only truncate if the text exceeds the max length
+            if (fullText.length > maxLength) {
+                // Ensure no mid-word truncation
+                const truncatedText = fullText.substring(0, maxLength).trim();
+                const lastSpaceIndex = truncatedText.lastIndexOf(" ");
+                const finalText = truncatedText.substring(0, lastSpaceIndex) + "...(+)";
+
+                // Replace the description with the truncated version
+                desc.textContent = finalText;
+
+            }
+        });
+    });   
+   
+-->
+</script>
+        
+    </body>
+</html>

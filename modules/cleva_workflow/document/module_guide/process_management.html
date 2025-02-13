@@ -1,0 +1,564 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" data-whc_version="26.0">
+    <head><link rel="shortcut icon" href="../../../../oxygen-webhelp\template\images\favicon.png"/><link rel="icon" href="../../../../oxygen-webhelp\template\images\favicon.png"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="This section includes all Cleva Workflow's features associated with task manager's processes."/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="topic"/><meta name="DC.relation" content="../../../../modules/cleva_workflow/document/module_guide/task_manager.html"/><meta name="DC.relation" content="../../../../modules/cleva_workflow/document/module_guide/task_manager.html"/><meta name="DC.relation" content="../../../../modules/cleva_workflow/feature/code_37628_en/code_37628_functional.html"/><meta name="DC.relation" content="../../../../modules/cleva_workflow/feature/code_37628_en/code_37628_functional.html"/><meta name="DC.relation" content="../../../../modules/cleva_workflow/feature/code_121738_en/code_121738_functional.html"/><meta name="DC.relation" content="../../../../modules/cleva_workflow/feature/code_152424_en/code_152424_functional_2.html"/><meta name="DC.relation" content="../../../../modules/cleva_workflow/feature/code_156189_en/code_156189_functional_2.html"/><meta name="rights" content="© 2024 Cleva Solutions, S.A. "/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="process_management"/><title>Process management</title><!--  Generated with Oxygen version 26.0, build number 2023110923.  --><meta name="wh-path2root" content="../../../../"/><meta name="wh-toc-id" content="process_management-d43829e35035"/><meta name="wh-source-relpath" content="modules/cleva_workflow/document/module_guide/process_management.dita"/><meta name="wh-out-relpath" content="modules/cleva_workflow/document/module_guide/process_management.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/app/commons.css?buildId=2023110923"/>
+    <link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/app/topic.css?buildId=2023110923"/>
+
+    <script src="../../../../oxygen-webhelp/app/options/properties.js?buildId=20250107101839"></script>
+    <script src="../../../../oxygen-webhelp/app/localization/strings.js?buildId=2023110923"></script>
+    <script src="../../../../oxygen-webhelp/app/search/index/keywords.js?buildId=20250107101839"></script>
+    <script defer="defer" src="../../../../oxygen-webhelp/app/commons.js?buildId=2023110923"></script>
+    <script defer="defer" src="../../../../oxygen-webhelp/app/topic.js?buildId=2023110923"></script>
+<link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/cleva-style.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/cleva-footer.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/search-in-header.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/topic-with-tiles.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/data-table.css?buildId=2023110923"/><link rel="stylesheet" type="text/css" href="../../../../oxygen-webhelp/template/css/cleva-style-notes.css?buildId=2023110923"/>
+        <!-- The DataTables library styles (for local use please uncomment the following lines) -->
+        <!--<link rel="stylesheet" type="text/css" href="${oxygen-webhelp-template-dir}/DataTables/datatables.min.css"/>-->
+        <script defer="true" src="../../../../oxygen-webhelp/template/DataTables/datatables.min.js"></script>
+        
+        
+        <!--<link rel="stylesheet" type="text/css"
+            href="http://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />-->
+        
+<!--        <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js" defer="true"/>
+        <script defer="true" src="https://cdn.datatables.net/fixedcolumns/5.0.1/js/dataTables.fixedColumns.js"/>
+        <script defer="true" src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"/>
+        <script defer="true" src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.colVis.min.js"/>-->
+        
+        
+        
+        <!-- DataTables initialization script -->
+        <script>
+    <!--            
+            window.addEventListener("DOMContentLoaded", (event) => {
+            $('.clevatable_dtresp_child_plwc_plcc').DataTable({
+                paging: false,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 320,
+                responsive: {
+                    details: {
+                        renderer: function (api, rowIdx, columns) {
+                            var data = $.map(columns, function (col, i) {
+                                return col.hidden ? 
+                                    '<tr>' +
+                                        '<td><strong>' + col.title + ':</strong></td> ' +  // Column title
+                                        '<td>' + col.data + '</td>' +                      // Corresponding data
+                                    '</tr>' : 
+                                    '';
+                            }).join('');
+        
+                            return data ? $('<table class="table"/>').append(data) : false;  // Append child rows to the table
+                        }
+                    }
+                },
+                columnDefs: [
+                    // Keep the first two columns always visible
+                    { responsivePriority: 1, targets: 0 },  // Widget/component key always visible
+                    { responsivePriority: 2, targets: 1 },  // Variable name always visible
+                    { responsivePriority: 3, targets: 2 },  // I/O always visible
+                    { responsivePriority: 4, targets: 3 },  // Type always visible
+                    { responsivePriority: 5, targets: 4 },  // Mandatory always visible
+        
+                    // Hide description and comment, accessible via child row
+                    { responsivePriority: 6, targets: [5, 6], className: 'none' }
+                ]
+            });
+        });
+
+    
+            window.addEventListener("DOMContentLoaded", (event) => {
+            $('.clevatable_dtresp_modal_plwc').DataTable({
+                paging: false,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 310,
+                responsive: {
+                    details: {
+                        display: $.fn.dataTable.Responsive.display.modal({  // modal call for DataTables
+                            header: function (row) {
+                                var data = row.data();
+                                return 'Details for Widget key: ' + data[0];  // Title for modal window
+                            }
+                        }),
+                    renderer: function (api, rowIdx, columns) {
+                        var data = $.map(columns, function (col, i) {
+                            var rowContent = '';
+    
+                            // Generate rows for hidden columns
+                            if (col.hidden) {
+                                // Add class if the column title starts with "Cleva"
+                                var titleClass = col.title.startsWith('Cleva') ? 'cleva-modal-field-child' : 'cleva-modal-field';
+                                rowContent += '<tr>' +
+                                    '<td class="' + titleClass + '"><strong>' + col.title + ':</strong></td>' +  // Column title with conditional class for "Cleva"
+                                    '<td>' + col.data + '</td>' +                      // Corresponding data
+                                '</tr>';
+                            }
+    
+                            // If the current column title is "Context", add the extra row after it
+                            if (col.title === 'Context') {
+                                rowContent += '<tr>' +  // Add a simple row here
+                                    '<td colspan="2" class="cleva-modal-field-group"><strong>Version availability</strong></td>' + // New row for Version availability
+                                '</tr>';
+                            }
+    
+                            return rowContent;
+                        }).join('');
+    
+                        return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns to modal
+                    }
+                }
+            },
+                columnDefs: [
+                    // Keep these 4 columns visible at all times
+                    { responsivePriority: 1, targets: 0 },  // Keep Widget Key visible
+                    { responsivePriority: 2, targets: 4 },  // Keep Name visible
+                    { responsivePriority: 5, targets: 2 },  // Keep Functional area visible
+                    { responsivePriority: 6, targets: 3 },  // Keep Business area visible
+                    { responsivePriority: 3, targets: 6 },  // Keep Status visible
+                    { responsivePriority: 4, targets: 1 },  // Keep Module visible
+
+        
+                    // Hide remaining columns (19 in total) but accessible via modal
+                    { responsivePriority: 7, targets: [5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], className: 'none' }
+                ]
+            });
+        });
+
+
+                    window.addEventListener("DOMContentLoaded", (event) => {
+                    $('.clevatable_dtresp_modal_plcc').DataTable({
+                        paging: false,
+                        scrollCollapse: true,
+                        scrollX: true,
+                        scrollY: 310,
+                        responsive: {
+                            details: {
+                                display: $.fn.dataTable.Responsive.display.modal({  // modal call for DataTables
+                                    header: function (row) {
+                                        var data = row.data();
+                                        return 'Details for Component key: ' + data[0];  // Title for modal window
+                                    }
+                                }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col, i) {
+                                    var rowContent = '';
+            
+                                    // Generate rows for hidden columns
+                                    if (col.hidden) {
+                                        // Add class if the column title starts with "Cleva"
+                                        var titleClass = col.title.startsWith('Cleva') ? 'cleva-modal-field-child' : 'cleva-modal-field';
+                                        rowContent += '<tr>' +
+                                            '<td class="' + titleClass + '"><strong>' + col.title + ':</strong></td>' +  // Column title with conditional class for "Cleva"
+                                            '<td>' + col.data + '</td>' +                      // Corresponding data
+                                        '</tr>';
+                                    }
+            
+                                    // If the current column title is "Exceptions", add the extra row after it
+                                    if (col.title === 'Exceptions') {
+                                        rowContent += '<tr>' +  // Add a simple row here
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Version availability</strong></td>' + // New row for Version availability
+                                        '</tr>';
+                                    }
+            
+                                    return rowContent;
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns to modal
+                            }
+                        }
+                    },
+                        columnDefs: [
+                            // Keep these 4 columns visible at all times
+                            { responsivePriority: 1, targets: 0 },  // Keep Component Key visible
+                            { responsivePriority: 2, targets: 1 },  // Keep Module visible
+                            { responsivePriority: 3, targets: 2 },  // Keep Functional area visible
+                            { responsivePriority: 4, targets: 3 },  // Keep Business area visible
+                            { responsivePriority: 5, targets: 4 },  // Keep Name visible
+                            { responsivePriority: 6, targets: 6 },  // Keep Status visible
+        
+                
+                            // Hide remaining columns (22 in total) but accessible via modal
+                            { responsivePriority: 7, targets: [5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], className: 'none' }
+                        ]
+                    });
+                });
+                  
+                
+                window.addEventListener("DOMContentLoaded", (event) => {
+                    $('.clevatable_dtresp_modal_apilm').DataTable({
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollX: true,
+                    scrollY: 310,
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.modal({
+                                header: function (row) {
+                                    var data = row.data();
+                                    return 'Details for API Logging message: ' + data[0];  // Customize header with first column's data
+                                }
+                            }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col) {
+                                    var rowContent = '';
+            
+                                    // Add "Message information" row before "Detail message" column
+                                    if (col.title === 'Detail message') {
+                                        rowContent += '<tr class="message-info">' +  
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Message information</strong></td>' +
+                                            '</tr>';
+                                    }
+            
+                                    // Add "Message context" row before "Context" column
+                                    if (col.title === 'Context') {
+                                        rowContent += '<tr class="message-context">' +  
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Message context</strong></td>' +
+                                            '</tr>';
+                                    }
+            
+                                    // Generate rows for hidden columns and apply 'cleva-modal-field-child' class to all except custom rows
+                                    if (col.hidden) {
+                                        rowContent += '<tr>' +
+                                            '<td class="cleva-modal-field-child"><strong>' + col.title + ':</strong></td>' +  // Always apply 'cleva-modal-field' class
+                                            '<td>' + col.data + '</td>' +  // Column data
+                                        '</tr>';
+                                    }
+            
+                                    return rowContent;
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns in modal
+                            }
+                        }
+                    },
+                    columnDefs: [
+                        { responsivePriority: 1, targets: 0},  // First column (Message code) always visible
+                        { responsivePriority: 2, targets: 1},  // Second column (Message) always visible
+                        { responsivePriority: 3, targets: 2, className: 'none'}, // Hide third column (Detail message), accessible via modal
+                        { responsivePriority: 4, targets: 3, className: 'none'}, // Hide fourth column (Additional data), accessible via modal
+                        { responsivePriority: 5, targets: 4, className: 'none'}, // Hide fifth column (Context), accessible via modal
+                        { responsivePriority: 6, targets: 5, className: 'none'}, // Hide sixth column (Process), accessible via modal
+                        { responsivePriority: 7, targets: 6, className: 'none'}, // Hide seventh column (Used on), accessible via modal
+                    ]
+                });
+            });
+
+              
+            window.addEventListener("DOMContentLoaded", (event) => {
+                    $('.clevatable_dtresp_modal_batch').DataTable({
+                        paging: false,
+                        scrollCollapse: true,
+                        scrollX: true,
+                        scrollY: 310,
+                        responsive: {
+                            details: {
+                                display: $.fn.dataTable.Responsive.display.modal({  // modal call for DataTables
+                                    header: function (row) {
+                                        var data = row.data();
+                                        return 'Details for batch: ' + data[0];  // Title for modal window
+                                    }
+                                }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col, i) {
+                                    var rowContent = '';
+            
+                                    // Generate rows for hidden columns
+                                    if (col.hidden) {
+                                        // Add class if the column title starts with "Cleva"
+                                        var titleClass = col.title.startsWith('Cleva') ? 'cleva-modal-field-child' : 'cleva-modal-field';
+                                        rowContent += '<tr>' +
+                                            '<td class="' + titleClass + '"><strong>' + col.title + ':</strong></td>' +  // Column title with conditional class for "Cleva"
+                                            '<td>' + col.data + '</td>' +                      // Corresponding data
+                                        '</tr>';
+                                    }
+            
+                                    // If the current column title is "Steps", add the extra row after it
+                                    if (col.title === 'Steps') {
+                                        rowContent += '<tr>' +  // Add a simple row here
+                                            '<td colspan="2" class="cleva-modal-field-group"><strong>Version availability</strong></td>' + // New row for Version availability
+                                        '</tr>';
+                                    }
+            
+                                    return rowContent;
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns to modal
+                            }
+                        }
+                    },
+                        columnDefs: [
+                            // Keep these 4 columns visible at all times
+                            { responsivePriority: 1, targets: 0 },  // Keep Module visible
+                            { responsivePriority: 2, targets: 1 },  // Keep Name visible
+                            { responsivePriority: 3, targets: 4 },  // Keep Frequency visible
+        
+                
+                            // Hide remaining columns (22 in total) but accessible via modal
+                            { responsivePriority: 4, targets: [2, 3, 5, 6, 7, 8], className: 'none' }
+                        ]
+                    });
+                });  
+              
+              
+              
+              
+    
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $('.clevatable_dtresp_modal_kpi').DataTable({
+                    searching: false,            // Disable search functionality
+                    info: false,                 // Disable table info display (e.g., "Showing X of Y entries")
+                    paging: false,               // Disable pagination
+                    scrollCollapse: true,        // Collapse empty space when content is smaller
+                    scrollX: true,              // Enable horizontal scrolling
+                    scrollY: false,              // Disable vertical scrolling
+                    autoWidth: false,            // Prevent DataTables from auto-adjusting column widths
+                    ordering: false,
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.modal({   // Correct modal display
+                                header: function (row) {
+                                    var data = row.data();
+                                    return 'Details for KPI Instruction: ' + data[0];  // Customize header with first column's data
+                                }
+                            }),
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col) {
+                                    return col.hidden ?                           // Display only hidden columns in the modal
+                                        '<tr>' +
+                                            '<td><strong>' + col.title + ':</strong></td> ' +  // Column title
+                                            '<td>' + col.data + '</td>' +                      // Column data
+                                        '</tr>' : '';
+                                }).join('');
+            
+                                return data ? $('<table class="table"/>').append(data) : false;  // Append hidden columns in modal
+                            }
+                        }
+                    },
+                    columnDefs: [
+                        { responsivePriority: 1, targets: 0, width: "30%"},  // First column (Table name) always visible
+                        { responsivePriority: 2, targets: 1},  // Second column (Description) always visible
+                        { responsivePriority: 3, targets: 2, className: 'none'}, // Hide third column (Command), accessible via modal
+                    ]
+                });
+            });
+
+  
+    
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $('.clevatable_dtstandard, .cleva_table1').DataTable({
+                    fixedColumns: {
+                        start: 1
+                    },
+                    dom: 'Bfrtip', // This is necessary to position the buttons
+                    buttons: [
+                        'colvis' // Adds column visibility buttons
+                    ],
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollX: true,
+                    scrollY: 310,
+                    responsive: false
+                });
+            });
+            
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $('.clevatable_dtstandard_basic').DataTable({
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollX: true,
+                    scrollY: 310,
+                    responsive: false
+                });
+            });
+            
+    -->
+        </script>
+    <script defer="true" src="../../../../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script></head>
+
+    <body id="process_management" class="wh_topic_page cleva_feature_list">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div xmlns:whc="http://www.oxygenxml.com/webhelp/components" class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="C:\cleva-docenv\repos\i2s-documentation\cleva_product_documentation/out/site/index.html" class=" wh_logo d-none d-sm-block "><img src="../../../../oxygen-webhelp\template\images/cleva-newicon.svg" alt="CLEVA LIFE V7 | DOCUMENTATION"/></a>
+                    <div class=" wh_publication_title "><a href="../../../../index.html"><span class="title">CLEVA <span class="ph">LIFE V7</span> | DOCUMENTATION</span></a></div>
+                    
+                </div>
+                
+                <button type="button" data-target="#wh_top_menu_and_indexterms_link" id="wh_menu_mobile_button" data-toggle="collapse" class="navbar-toggler collapsed wh_toggle_button" aria-expanded="false" aria-label="Toggle menu" aria-controls="wh_top_menu_and_indexterms_link">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                <nav class=" wh_top_menu " aria-label="Menu Container"><ul role="menubar" aria-label="Menu"><li role="menuitem"><span id="news_2024_en-d43829e25-mi" data-tocid="news_2024_en-d43829e25" data-state="leaf" class=" topicref " data-id="news_2024_en"><span class="title"><a href="../../../../site/news/news_2024_en.html">News 2024</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="release_documentation-d43829e44-mi" data-tocid="release_documentation-d43829e44" data-state="not-ready" class=" topicref " data-id="release_documentation"><span class="title"><a href="../../../../site/release_documentation/release_documentation_intro.html">Release documentation</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="module_guides-d43829e14159-mi" data-tocid="module_guides-d43829e14159" data-state="not-ready" class=" topicref " data-id="module_guides"><span class="title"><a href="../../../../site/module_guides/module_guides_intro.html">Module guides</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="catalogues-d43829e35552-mi" data-tocid="catalogues-d43829e35552" data-state="not-ready" class=" topicref " data-id="catalogues"><span class="title"><a href="../../../../catalogues/catalogues.html">Catalogues</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="business_documents-d43829e35725-mi" data-tocid="business_documents-d43829e35725" data-state="not-ready" class=" topicref " data-id="business_documents"><span class="title"><a href="../../../../business_documents/business_documents.html">Module overview</a></span></span></li></ul></nav>
+                
+                
+            </div>
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../../../../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div></div>
+    </div>
+</header>
+        
+        
+         
+        
+        
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../../../../index.html"><span>Home</span></a></span></li><li><div class="topicref" data-id="module_guides"><div class="title"><a href="../../../../site/module_guides/module_guides_intro.html">Module guides</a><div class="wh-tooltip"><p class="shortdesc">This section provides all module guides organized by module.</p></div></div></div></li><li><div class="topicref" data-id="module_guides_related_to_one_module"><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro-4.html"><span class="ph">Cleva Workflow</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module includes the workflow engine that orchestrates all business processes and      corresponding insurance activities, from underwriting to claim management. It allows      implementing activity automation according to the business rules defined by the insurance      company, and the activities processed manually are available to users via the task      manager.</span></p></div></div></div></li><li><div class="topicref" data-id="task_manager"><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/task_manager.html">Task manager</a></div></div></li><li class="active"><div class="topicref" data-id="process_management"><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/process_management.html">Process management</a></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="true"><div data-tocid="module_guides-d43829e14159" class="topicref" data-id="module_guides" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action module_guides-d43829e14159-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_intro.html" id="module_guides-d43829e14159-link">Module guides</a><div class="wh-tooltip"><p class="shortdesc">This section provides all module guides organized by module.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="module_guides_related_to_one_module-d43829e14177" class="topicref" data-id="module_guides_related_to_one_module" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action module_guides_related_to_one_module-d43829e14177-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro.html" id="module_guides_related_to_one_module-d43829e14177-link"><span class="ph">Cleva Analytics</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module includes several data marts generated based on the business of Life,      Non-life and Accounting areas. It allows extracting, from massive data volumes, information      that is relevant for a quick decision-making process.</span></p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="module_guides_related_to_one_module-d43829e28119" class="topicref" data-id="module_guides_related_to_one_module" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action module_guides_related_to_one_module-d43829e28119-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro-1.html" id="module_guides_related_to_one_module-d43829e28119-link"><span class="ph">Cleva Frontend factory</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module provides features to define the UX/UI of all Cleva software. It allows      insurers to define menus, pages and sections, and to integrate different Cleva modules within      the same user interface.</span></p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="module_guides_related_to_one_module-d43829e28885" class="topicref" data-id="module_guides_related_to_one_module" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action module_guides_related_to_one_module-d43829e28885-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro-2.html" id="module_guides_related_to_one_module-d43829e28885-link"><span class="ph">Cleva Outputs</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module supports integration between Cleva software and third-party applications      regarding output management, allowing document generation, sending and archiving.</span></p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="module_guides_related_to_one_module-d43829e29330" class="topicref" data-id="module_guides_related_to_one_module" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action module_guides_related_to_one_module-d43829e29330-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro-3.html" id="module_guides_related_to_one_module-d43829e29330-link"><span class="ph">Cleva Product factory</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module includes product engineering features, which allow the insurance company to      configure all the components the system needs to manage a product, including tariffs, data      validation rules, risk acceptance, calculation of taxes and commissions, claim context,      indemnity calculation rules and the behaviour expected in a specific distribution      channel.</span></p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="technical_accounting_homepage-d43829e33690" class="topicref" data-id="technical_accounting_homepage" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action technical_accounting_homepage-d43829e33690-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_technical_accounting/document/module_guide/technical_accounting_homepage.html" id="technical_accounting_homepage-d43829e33690-link">Cleva Technical accounting</a><div class="wh-tooltip"><p class="shortdesc">Cleva Technical accounting (TAC) is a solution designed to support the integration of         the insurance company’s core system with its accounting system.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="module_guides_related_to_one_module-d43829e34293" class="topicref" data-id="module_guides_related_to_one_module" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action module_guides_related_to_one_module-d43829e34293-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../site/module_guides/module_guides_related_to_one_module_intro-4.html" id="module_guides_related_to_one_module-d43829e34293-link"><span class="ph">Cleva Workflow</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">This module includes the workflow engine that orchestrates all business processes and      corresponding insurance activities, from underwriting to claim management. It allows      implementing activity automation according to the business rules defined by the insurance      company, and the activities processed manually are available to users via the task      manager.</span></p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="workflow-d43829e34315" class="topicref" data-id="workflow" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action workflow-d43829e34315-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/Workflow%20configurator.html" id="workflow-d43829e34315-link">Workflow engine</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="product_library-d43829e34441" class="topicref" data-id="product_library" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action product_library-d43829e34441-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/product%20library.html" id="product_library-d43829e34441-link">Product library</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="modeller_0-d43829e34665" class="topicref" data-id="modeller_0" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action modeller_0-d43829e34665-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/modeller_0.html" id="modeller_0-d43829e34665-link">Modeller</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="workflow_configurations-d43829e34723" class="topicref" data-id="workflow_configurations" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action workflow_configurations-d43829e34723-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/workflow_configurations.html" id="workflow_configurations-d43829e34723-link">Workflow configurations</a></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="task_manager-d43829e35020" class="topicref" data-id="task_manager" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action task_manager-d43829e35020-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/task_manager.html" id="task_manager-d43829e35020-link">Task manager</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="true" class="active"><div data-tocid="process_management-d43829e35035" class="topicref" data-id="process_management" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action process_management-d43829e35035-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/process_management.html" id="process_management-d43829e35035-link">Process management</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="code_37628_functional-d43829e35053" class="topicref" data-id="code_37628_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_37628_en/code_37628_functional.html" id="code_37628_functional-d43829e35053-link">Task manager - General features: Processes</a><div class="wh-tooltip"><p class="shortdesc">You can search business processes using several criteria.</p></div></div></div></li><li role="treeitem"><div data-tocid="code_121738_functional-d43829e35071" class="topicref" data-id="code_121738_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_121738_en/code_121738_functional.html" id="code_121738_functional-d43829e35071-link">Support cases in the process search screen</a><div class="wh-tooltip"><p class="shortdesc">The process search screen in the task manager now allows         searching processes in both BPMN and CMMN standards. Therefore, there is no need for a         specific menu, and the Group life acceptance menu was removed.</p></div></div></div></li><li role="treeitem"><div data-tocid="code_152424_functional-d43829e35096" class="topicref" data-id="code_152424_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_152424_en/code_152424_functional_2.html" id="code_152424_functional-d43829e35096-link">Sort results by deadline when searching for processes</a><div class="wh-tooltip"><p class="shortdesc">The process search results are now sorted by deadline, by         default.</p></div></div></div></li><li role="treeitem"><div data-tocid="code_156189_functional-d43829e35114" class="topicref" data-id="code_156189_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_156189_en/code_156189_functional_2.html" id="code_156189_functional-d43829e35114-link">Configuration of process access out of the flow definition</a><div class="wh-tooltip"><p class="shortdesc">This feature allows configuring users and groups of users that have permissions to instanciate or access processes in a configuration screen.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tasks_management-d43829e35132" class="topicref" data-id="tasks_management" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tasks_management-d43829e35132-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/tasks_management.html" id="tasks_management-d43829e35132-link">Tasks management</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="homepage-d43829e35211" class="topicref" data-id="homepage" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action homepage-d43829e35211-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/homepage.html" id="homepage-d43829e35211-link">Homepage</a></div></div></li><li role="treeitem"><div data-tocid="operational_management-d43829e35241" class="topicref" data-id="operational_management" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/operational_management.html" id="operational_management-d43829e35241-link">Operational management</a></div></div></li><li role="treeitem"><div data-tocid="code_12318_functional-d43829e35256" class="topicref" data-id="code_12318_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_12318_en/code_12318_functional.html" id="code_12318_functional-d43829e35256-link">Multichannel configurations</a><div class="wh-tooltip"><p class="shortdesc">This feature supports the configuration by channel in         different points of the application.</p></div></div></div></li><li role="treeitem"><div data-tocid="code_12334_functional-d43829e35281" class="topicref" data-id="code_12334_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_12334_en/code_12334_functional.html" id="code_12334_functional-d43829e35281-link">Improvements to the task manager</a><div class="wh-tooltip"><p class="shortdesc">This feature introduces new enhancements to the task         manager to accommodate new capabilities in the workflow engine.</p></div></div></div></li><li role="treeitem"><div data-tocid="code_154444_functional-d43829e35306" class="topicref" data-id="code_154444_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_154444_en/code_154444_functional_2.html" id="code_154444_functional-d43829e35306-link">Communication between widgets in the Task manager</a><div class="wh-tooltip"><p class="shortdesc">This feature allows widgets to adapt their behaviour         depending on shared information that is available for all widgets.</p></div></div></div></li><li role="treeitem"><div data-tocid="code_110046_functional-d43829e35324" class="topicref" data-id="code_110046_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_110046_en/code_110046_functional.html" id="code_110046_functional-d43829e35324-link">Process categorisation</a><div class="wh-tooltip"><p class="shortdesc">This feature allows filtering processes and tasks by process category. </p></div></div></div></li><li role="treeitem"><div data-tocid="code_176309_functional-d43829e35349" class="topicref" data-id="code_176309_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_176309_en/code_176309_functional_2.html" id="code_176309_functional-d43829e35349-link">New process category: Surrenders</a><div class="wh-tooltip"><p class="shortdesc">A new item was added to the list of available categories         to allow categorising and filtering surrender processes. The name of this new category is         Surrenders.</p></div></div></div></li><li role="treeitem"><div data-tocid="code_149094_functional-d43829e35367" class="topicref" data-id="code_149094_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_149094_en/code_149094_functional_2.html" id="code_149094_functional-d43829e35367-link"><em class="ph i">Ad hoc </em>configuration of widgets in the Task manager</a><div class="wh-tooltip"><p class="shortdesc">This feature allows controlling the behaviour of a widget in the Task manager. </p></div></div></div></li><li role="treeitem"><div data-tocid="code_177131_functional-d43829e35388" class="topicref" data-id="code_177131_functional" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/feature/code_177131_en/code_177131_functional_2.html" id="code_177131_functional-d43829e35388-link">Distinguish process by identification document</a><div class="wh-tooltip"><p class="shortdesc">This feature modified the searches of Processes and Tasks         in the Task manager to seek elements by the identification document value of the party         instead of the tax id.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="bam-d43829e35406" class="topicref" data-id="bam" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action bam-d43829e35406-link" class="wh-expand-btn"></span><div class="title"><a href="../../../../modules/cleva_workflow/document/module_guide/bam.html" id="bam-d43829e35406-link">BAM</a></div></div></li></ul></li></ul></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic topic" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Process
+        management</h1>
+    <div class="- topic/body body">
+        <p class="- topic/p p">This section includes all Cleva Workflow's features associated with task manager's
+            processes.</p>
+    </div>
+</article></main></div>
+                        
+                        <div class=" wh_child_links d-print-none "><nav aria-label="Child Links" role="navigation" class="- topic/related-links related-links"><ul class="ullinks"><li class="- topic/link link ulchildlink"><strong><a href="../../../../modules/cleva_workflow/feature/code_37628_en/code_37628_functional.html">Task manager - General features: Processes</a></strong><div class="- topic/desc desc">You can search business processes using several criteria.</div></li><li class="- topic/link link ulchildlink"><strong><a href="../../../../modules/cleva_workflow/feature/code_121738_en/code_121738_functional.html">Support cases in the process search screen</a></strong><div class="- topic/desc desc">The process search screen in the task manager now allows         searching processes in both BPMN and CMMN standards. Therefore, there is no need for a         specific menu, and the Group life acceptance menu was removed.</div></li><li class="- topic/link link ulchildlink"><strong><a href="../../../../modules/cleva_workflow/feature/code_152424_en/code_152424_functional_2.html">Sort results by deadline when searching for processes</a></strong><div class="- topic/desc desc">The process search results are now sorted by deadline, by         default.</div></li><li class="- topic/link link ulchildlink"><strong><a href="../../../../modules/cleva_workflow/feature/code_156189_en/code_156189_functional_2.html">Configuration of process access out of the flow definition</a></strong><div class="- topic/desc desc">This feature allows configuring users and groups of users that have permissions to instanciate or access processes in a configuration screen.</div></li></ul></nav></div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div>
+<!--    <span>
+        Generated by <a class="oxyFooter" href="http://www.oxygenxml.com/xml_webhelp.html" target="_blank">
+            &lt;oXygen/&gt; XML WebHelp
+        </a> 
+    </span>-->
+    
+    <div class="copyright_info">
+        <span class="copyright_years">
+            ©2024
+        </span>
+        <span class="organization">
+            Cleva Solutions, S.A. 
+        </span>
+        <span> All rights reserved. | </span>
+        <a href="../../../../support/reuse/copyright.html">Copyright</a>
+        <span>| Last updated: </span>
+        2025-01-07.
+    </div>
+</div>
+  </div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        <script type="text/javascript">
+<!--    
+    const list = document.querySelectorAll(".wh_child_links .ulchildlink, .wh_child_links .wh_tile");
+    Array.prototype.forEach.call(list, function (tile) {
+        tile.addEventListener('click', event => {
+        tile.querySelector('a').click();
+    });
+    });
+    
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all description elements
+        document.querySelectorAll(".flip-card-back-child .desc").forEach(desc => {
+            const maxLength = 210; // Set the maximum character length
+            const fullText = desc.textContent.trim(); // Get the full description
+
+            // Only truncate if the text exceeds the max length
+            if (fullText.length > maxLength) {
+                // Ensure no mid-word truncation
+                const truncatedText = fullText.substring(0, maxLength).trim();
+                const lastSpaceIndex = truncatedText.lastIndexOf(" ");
+                const finalText = truncatedText.substring(0, lastSpaceIndex) + "...(+)";
+
+                // Replace the description with the truncated version
+                desc.textContent = finalText;
+
+            }
+        });
+    });   
+   
+-->
+</script>
+        
+    </body>
+</html>
